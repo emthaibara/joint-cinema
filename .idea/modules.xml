@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mycinema.iml" filepath="$PROJECT_DIR$/mycinema.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-video-upload-api/service-video-upload-api.iml" filepath="$PROJECT_DIR$/service-video-upload-api/service-video-upload-api.iml" />
+    </modules>
+  </component>
+</project>
