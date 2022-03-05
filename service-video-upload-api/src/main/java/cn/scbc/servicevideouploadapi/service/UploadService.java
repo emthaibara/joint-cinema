@@ -29,6 +29,7 @@ public class UploadService {
     private String storePath;
 
     public void chunkUpload(ChunkPoJo chunkPoJo){
+
         MultipartFile multipartFile = chunkPoJo.getFile();
 
         Integer chunk = chunkPoJo.getChunk();
@@ -49,9 +50,11 @@ public class UploadService {
         } catch (IOException e) {
             logger.info(e.getMessage());
         }
+
     }
 
     public void doMerge(MergeChunkPoJo mergeChunkPoJo){
+
         String md5 = mergeChunkPoJo.getFileMd5();
         String fileName = mergeChunkPoJo.getFileName();
 
@@ -91,6 +94,7 @@ public class UploadService {
                 logger.error(e.getMessage());
             }
         }
+
         logger.info("mergeChunk success !"+folder.delete());
     }
 

@@ -6,24 +6,36 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="service-video-upload-api" />
         <module name="service-ffmpeg-cmd-api" />
+        <module name="service-video-upload-api" />
+        <module name="service-avatar-api" />
+        <module name="spring-cloud-gateway" />
         <module name="eureka-server" />
+        <module name="service-login-api" />
+        <module name="service-sign-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="eureka-server" target="11" />
       <module name="mycinema" target="11" />
+      <module name="service-avatar-api" target="11" />
       <module name="service-ffmpeg-cmd-api" target="11" />
+      <module name="service-login-api" target="11" />
+      <module name="service-sign-api" target="11" />
       <module name="service-video-upload-api" target="11" />
+      <module name="spring-cloud-gateway" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="eureka-server" options="-parameters" />
       <module name="mycinema" options="-parameters" />
+      <module name="service-avatar-api" options="-parameters" />
       <module name="service-ffmpeg-cmd-api" options="-parameters" />
+      <module name="service-login-api" options="-parameters" />
+      <module name="service-sign-api" options="-parameters" />
       <module name="service-video-upload-api" options="-parameters" />
+      <module name="spring-cloud-gateway" options="-parameters" />
     </option>
   </component>
 </project>

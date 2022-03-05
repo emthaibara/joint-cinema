@@ -6,6 +6,10 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/service-video-upload-api/pom.xml" />
         <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/service-sign-api/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-cloud-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/service-login-api/pom.xml" />
+        <option value="$PROJECT_DIR$/service-avatar-api/pom.xml" />
       </list>
     </option>
   </component>

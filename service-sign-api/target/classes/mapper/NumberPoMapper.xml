@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="scbc.liyongjie.servicesignapi.dao.NumberPoMapper" >
+  <resultMap id="BaseResultMap" type="scbc.liyongjie.servicesignapi.po.NumberPo" >
+    <id column="number" property="number" jdbcType="VARCHAR" />
+    <result column="uuid" property="uuid" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from `cn.scbc.mycinema`.number
+    where number = #{number,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="scbc.liyongjie.servicesignapi.po.NumberPo" >
+    insert into `cn.scbc.mycinema`.number (number, uuid)
+    values (#{number,jdbcType=VARCHAR}, #{uuid,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="scbc.liyongjie.servicesignapi.po.NumberPo" >
+    update `cn.scbc.mycinema`.number
+    set uuid = #{uuid,jdbcType=VARCHAR}
+    where number = #{number,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select number, uuid
+    from `cn.scbc.mycinema`.number
+    where number = #{number,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select number, uuid
+    from `cn.scbc.mycinema`.number
+  </select>
+</mapper>
