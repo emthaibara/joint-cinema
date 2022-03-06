@@ -8,10 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="service-ffmpeg-cmd-api" />
         <module name="service-video-upload-api" />
+        <module name="service-sso-api" />
         <module name="service-avatar-api" />
         <module name="spring-cloud-gateway" />
+        <module name="service-logout-api" />
         <module name="eureka-server" />
-        <module name="service-login-api" />
         <module name="service-sign-api" />
       </profile>
     </annotationProcessing>
@@ -21,7 +22,9 @@
       <module name="service-avatar-api" target="11" />
       <module name="service-ffmpeg-cmd-api" target="11" />
       <module name="service-login-api" target="11" />
+      <module name="service-logout-api" target="11" />
       <module name="service-sign-api" target="11" />
+      <module name="service-sso-api" target="11" />
       <module name="service-video-upload-api" target="11" />
       <module name="spring-cloud-gateway" target="11" />
     </bytecodeTargetLevel>
@@ -33,7 +36,9 @@
       <module name="service-avatar-api" options="-parameters" />
       <module name="service-ffmpeg-cmd-api" options="-parameters" />
       <module name="service-login-api" options="-parameters" />
+      <module name="service-logout-api" options="-parameters" />
       <module name="service-sign-api" options="-parameters" />
+      <module name="service-sso-api" options="-parameters" />
       <module name="service-video-upload-api" options="-parameters" />
       <module name="spring-cloud-gateway" options="-parameters" />
     </option>

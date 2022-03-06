@@ -1,7 +1,7 @@
 package scbc.liyongjie.servicesignapi.validator;
 
 import scbc.liyongjie.servicesignapi.pojo.UserPoJo;
-import scbc.liyongjie.servicesignapi.utils.ValidateUtils;
+import scbc.liyongjie.servicesignapi.util.ValidateUtils;
 import scbc.liyongjie.servicesignapi.validator.annotation.User;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

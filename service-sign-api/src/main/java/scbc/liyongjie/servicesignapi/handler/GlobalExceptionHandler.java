@@ -6,11 +6,10 @@ import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import scbc.liyongjie.servicesignapi.enums.CodeMsgEnum;
 import scbc.liyongjie.servicesignapi.exception.BaseException;
-import scbc.liyongjie.servicesignapi.exception.LoginException;
+import scbc.liyongjie.servicesignapi.exception.SignException;
 import scbc.liyongjie.servicesignapi.result.Result;
 
 import java.util.stream.Collectors;
@@ -42,8 +41,8 @@ public class GlobalExceptionHandler {
     }
 
     @ResponseBody
-    @ExceptionHandler(value = LoginException.class)
-    public Result<?> loginExceptionHandler(){
+    @ExceptionHandler(value = SignException.class)
+    public Result<?> signExceptionHandler(){
         log.error(CodeMsgEnum.REPEAT.getCodeMsg());
         return new Result<>().error(CodeMsgEnum.REPEAT);
     }

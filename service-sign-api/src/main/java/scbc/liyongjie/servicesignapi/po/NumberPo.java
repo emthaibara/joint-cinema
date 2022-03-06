@@ -1,5 +1,8 @@
 package scbc.liyongjie.servicesignapi.po;
-
+/**
+ * @Author:SCBC_LiYongJie
+ * @time:2022/3/5
+ */
 public class NumberPo {
     private String number;
 

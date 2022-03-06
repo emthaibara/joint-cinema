@@ -5,8 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/mycinema.iml" filepath="$PROJECT_DIR$/mycinema.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-avatar-api/service-avatar-api.iml" filepath="$PROJECT_DIR$/service-avatar-api/service-avatar-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/service-login-api/service-login-api.iml" filepath="$PROJECT_DIR$/service-login-api/service-login-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-logout-api/service-logout-api.iml" filepath="$PROJECT_DIR$/service-logout-api/service-logout-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-sign-api/service-sign-api.iml" filepath="$PROJECT_DIR$/service-sign-api/service-sign-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-sso-api/service-sso-api.iml" filepath="$PROJECT_DIR$/service-sso-api/service-sso-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-video-upload-api/service-video-upload-api.iml" filepath="$PROJECT_DIR$/service-video-upload-api/service-video-upload-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-cloud-gateway/spring-cloud-gateway.iml" filepath="$PROJECT_DIR$/spring-cloud-gateway/spring-cloud-gateway.iml" />
     </modules>

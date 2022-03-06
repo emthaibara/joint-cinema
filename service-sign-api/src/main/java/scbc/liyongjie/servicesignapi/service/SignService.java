@@ -8,12 +8,12 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 import scbc.liyongjie.servicesignapi.dao.NumberPoMapper;
 import scbc.liyongjie.servicesignapi.dao.UserPoMapper;
-import scbc.liyongjie.servicesignapi.exception.LoginException;
+import scbc.liyongjie.servicesignapi.exception.SignException;
 import scbc.liyongjie.servicesignapi.po.NumberPo;
 import scbc.liyongjie.servicesignapi.po.UserPo;
 import scbc.liyongjie.servicesignapi.pojo.UserPoJo;
-import scbc.liyongjie.servicesignapi.utils.PBKDF2Utils;
-import scbc.liyongjie.servicesignapi.utils.UUIDUtils;
+import scbc.liyongjie.servicesignapi.util.PBKDF2Utils;
+import scbc.liyongjie.servicesignapi.util.UUIDUtils;
 
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
@@ -55,7 +55,7 @@ public class SignService {
 
     private void isExist(final String number){
         if (!Objects.isNull(numberPoMapper.selectByPrimaryKey(number)))
-            throw new LoginException();
+            throw new SignException();
     }
 
     private UserPo buildRecord(final UserPoJo userPoJo){
