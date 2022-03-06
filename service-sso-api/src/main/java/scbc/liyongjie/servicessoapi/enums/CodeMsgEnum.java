@@ -6,7 +6,8 @@ package scbc.liyongjie.servicessoapi.enums;
  */
 public enum CodeMsgEnum {
 
-    NOTEXIST(10011,"该用户尚未注册，请先注册后登录");
+    NOTEXIST(10122,"该用户尚未注册，请先注册后登录"),
+    FAIL(10012,"密码不正确请重新输入");
 
     private final Integer status;
     private final String codeMsg;

@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import scbc.liyongjie.servicessoapi.enums.CodeMsgEnum;
 import scbc.liyongjie.servicessoapi.exception.BaseException;
-import scbc.liyongjie.servicessoapi.exception.LoginException;
+import scbc.liyongjie.servicessoapi.exception.PasswordException;
+import scbc.liyongjie.servicessoapi.exception.UnRegisteredException;
 import scbc.liyongjie.servicessoapi.result.Result;
 
 
@@ -29,10 +30,15 @@ public class GlobalExceptionHandler {
     }
 
     @ResponseBody
-    @ExceptionHandler(value = LoginException.class)
-    public Result<?> loginExceptionHandler(){
+    @ExceptionHandler(value = UnRegisteredException.class)
+    public Result<?> unRegisteredExceptionHandler(){
         log.error(CodeMsgEnum.NOTEXIST.getCodeMsg());
         return new Result<>().error(CodeMsgEnum.NOTEXIST);
     }
 
+    @ResponseBody
+    @ExceptionHandler(value = PasswordException.class)
+    public Result<?> passwordExceptionHandler(){
+        return new Result<>().error(CodeMsgEnum.FAIL);
+    }
 }
