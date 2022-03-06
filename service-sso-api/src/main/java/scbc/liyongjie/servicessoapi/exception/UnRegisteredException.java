@@ -5,7 +5,6 @@ package scbc.liyongjie.servicessoapi.exception;
  * @time:2022/3/6
  */
 
-
 public class UnRegisteredException extends RuntimeException{
 
     public UnRegisteredException() {

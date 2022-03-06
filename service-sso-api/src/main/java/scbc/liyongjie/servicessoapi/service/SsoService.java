@@ -52,7 +52,7 @@ public class SsoService {
 
         //redis双向绑定 token - uuid
         redisUtil.set(PrefixEnum.TOKEN.getPrefix()+jwt, secret);
-        redisUtil.set(PrefixEnum.NUMBER.getPrefix()+uuid, jwt);
+        redisUtil.set(PrefixEnum.UUID.getPrefix()+uuid, jwt);
 
         //添加至header
         httpServletResponse.addHeader(PrefixEnum.TOKEN.getPrefix(), jwt);

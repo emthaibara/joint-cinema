@@ -54,7 +54,7 @@ public class SignService {
     }
 
     private void isExist(final String number){
-        if (!Objects.isNull(numberPoMapper.selectByPrimaryKey(number)))
+        if (Objects.isNull(numberPoMapper.selectByPrimaryKey(number)))
             throw new SignException();
     }
 

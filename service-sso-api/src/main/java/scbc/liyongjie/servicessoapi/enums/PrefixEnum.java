@@ -9,8 +9,8 @@ package scbc.liyongjie.servicessoapi.enums;
 public enum PrefixEnum {
 
     TOKEN("token"),
-    NUMBER("number");
-
+    NUMBER("number"),
+    UUID("uuid");
     private final String prefix;
 
     PrefixEnum(String prefix) {
