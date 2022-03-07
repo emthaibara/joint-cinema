@@ -6,10 +6,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
-import scbc.liyongjie.servicesignapi.dao.NumberPoMapper;
 import scbc.liyongjie.servicesignapi.dao.UserPoMapper;
 import scbc.liyongjie.servicesignapi.exception.SignException;
-import scbc.liyongjie.servicesignapi.po.NumberPo;
 import scbc.liyongjie.servicesignapi.po.UserPo;
 import scbc.liyongjie.servicesignapi.pojo.UserPoJo;
 import scbc.liyongjie.servicesignapi.util.PBKDF2Utils;
@@ -38,48 +36,42 @@ public class SignService {
     private SimpleDateFormat simpleDateFormat;
 
     @Resource
-    private NumberPoMapper numberPoMapper;
-
-    @Resource
     private UserPoMapper userPoMapper;
 
-    public Integer login(final UserPoJo userPoJo){
+    public void login(final UserPoJo userPoJo){
+
+        //再次判断是否注册
         isExist(userPoJo.getNumber());
 
+        //构建record
         UserPo userPo = buildRecord(userPoJo);
-        NumberPo numberPo = buildRecord(userPoJo.getNumber(),userPo.getUuid());
-        numberPoMapper.insert(numberPo);
 
-        return userPoMapper.insert(userPo);
+        //持久化数据记录
+        log.info("新增注册用户--number:{}-----{}",userPoJo.getNumber(),userPoMapper.insert(userPo));
+
     }
 
     private void isExist(final String number){
-        if (Objects.isNull(numberPoMapper.selectByPrimaryKey(number)))
+        if (Objects.isNull(userPoMapper.selectByPrimaryKey(number)))
             throw new SignException();
     }
 
     private UserPo buildRecord(final UserPoJo userPoJo){
         UserPo userRecord = new UserPo();
 
-        userRecord.setUuid(UUIDUtils.getUUID());
+        //初始化---手机号/默认头像/昵称/记录build时间
+        userRecord.setNumber(userPoJo.getNumber());
         userRecord.setAvatar(defaultAvatar);
         userRecord.setName(userPoJo.getName());
         userRecord.setDate(simpleDateFormat.format(new Date()));
 
-        //对密码做hash，并存储salt，pepper固定在properties内
+        //对密码做hash并存储，以及salt存储，pepper固定在properties内
         Hash hash = PBKDF2Utils.PBKDF2(userPoJo.getPassword());
         userRecord.setPwdshash(hash.getResult());
         userRecord.setPwdsalt(hash.getSalt());
 
         log.info("有新的记录产生-----{}", userRecord);
         return userRecord;
-    }
-
-    private NumberPo buildRecord(final String number,final String uuid){
-        NumberPo numberPo = new NumberPo();
-        numberPo.setNumber(number);
-        numberPo.setUuid(uuid);
-        return numberPo;
     }
 
 }

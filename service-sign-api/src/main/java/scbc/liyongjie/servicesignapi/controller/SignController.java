@@ -32,8 +32,8 @@ public class SignController {
                               @Validated UserPoJo userPoJo){
 
         log.info("有新的注册用户到来-----{}",userPoJo.toString());
-        Integer result = loginService.login(userPoJo);
-        log.info("新增注册用户--number:{}----{}",userPoJo.getNumber(),result);
+
+        loginService.login(userPoJo);
 
         return Result.signSuccess();
     }

@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
-import scbc.liyongjie.servicessoapi.dao.NumberPoMapper;
+import scbc.liyongjie.servicessoapi.dao.UserPoMapper;
 import scbc.liyongjie.servicessoapi.enums.PrefixEnum;
 import scbc.liyongjie.servicessoapi.exception.UnRegisteredException;
 import scbc.liyongjie.servicessoapi.util.RedisUtil;
@@ -25,7 +25,7 @@ public class SsoInterceptor implements HandlerInterceptor {
     private static final Logger log = LoggerFactory.getLogger(SsoInterceptor.class);
 
     @Resource
-    private NumberPoMapper numberPoMapper;
+    private UserPoMapper userPoMapper;
 
     @Resource
     private RedisUtil redisUtil;
@@ -50,7 +50,7 @@ public class SsoInterceptor implements HandlerInterceptor {
      * @param number 手机号
      */
     private void isExist(String number) throws IOException {
-        if (Objects.isNull(numberPoMapper.selectByPrimaryKey(number)))
+        if (Objects.isNull(userPoMapper.selectByPrimaryKey(number)))
             throw new UnRegisteredException();
     }
 
@@ -59,13 +59,11 @@ public class SsoInterceptor implements HandlerInterceptor {
      * @param number 手机号
      */
     private void isOnline(String number){
-
         if (redisUtil.hasKey(PrefixEnum.NUMBER.getPrefix()+number)){
             String token = redisUtil.get(PrefixEnum.NUMBER.getPrefix()+number);
             redisUtil.delete(PrefixEnum.NUMBER.getPrefix()+number);
             redisUtil.delete(PrefixEnum.TOKEN.getPrefix()+token);
         }
-
     }
 
 }

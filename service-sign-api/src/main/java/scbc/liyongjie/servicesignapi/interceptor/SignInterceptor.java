@@ -2,13 +2,12 @@ package scbc.liyongjie.servicesignapi.interceptor;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
-import scbc.liyongjie.servicesignapi.dao.NumberPoMapper;
+import scbc.liyongjie.servicesignapi.dao.UserPoMapper;
 import scbc.liyongjie.servicesignapi.exception.SignException;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.Objects;
 
 /**
@@ -22,10 +21,10 @@ public class SignInterceptor implements HandlerInterceptor {
     private static final String PREFIX = "number";
 
     @Resource
-    private NumberPoMapper numberPoMapper;
+    private UserPoMapper userPoMapper;
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         isExist(getNumber(request));
         return Boolean.TRUE;
     }
@@ -38,8 +37,8 @@ public class SignInterceptor implements HandlerInterceptor {
      * 判断该手机号是否注册
      * @param number 手机号
      */
-    private void isExist(String number) throws IOException {
-        if (!Objects.isNull(numberPoMapper.selectByPrimaryKey(number)))
+    private void isExist(String number) {
+        if (!Objects.isNull(userPoMapper.selectByPrimaryKey(number)))
             throw new SignException();
     }
 

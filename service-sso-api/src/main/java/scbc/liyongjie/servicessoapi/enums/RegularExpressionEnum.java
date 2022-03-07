@@ -21,3 +21,8 @@ public enum RegularExpressionEnum {
     }
 
 }
+class text{
+    public static void main(String[] args) {
+        System.out.println(RegularExpressionEnum.NUMBER_RE.getRegularExpression());
+    }
+}

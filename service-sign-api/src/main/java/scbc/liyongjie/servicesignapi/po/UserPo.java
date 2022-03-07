@@ -1,10 +1,7 @@
 package scbc.liyongjie.servicesignapi.po;
-/**
- * @Author:SCBC_LiYongJie
- * @time:2022/3/5
- */
+
 public class UserPo {
-    private String uuid;
+    private String number;
 
     private String name;
 
@@ -16,12 +13,12 @@ public class UserPo {
 
     private String pwdshash;
 
-    public String getUuid() {
-        return uuid;
+    public String getNumber() {
+        return number;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public String getName() {
@@ -70,7 +67,7 @@ public class UserPo {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", uuid=").append(uuid);
+        sb.append(", number=").append(number);
         sb.append(", name=").append(name);
         sb.append(", pwdsalt=").append(pwdsalt);
         sb.append(", avatar=").append(avatar);
@@ -92,7 +89,7 @@ public class UserPo {
             return false;
         }
         UserPo other = (UserPo) that;
-        return (this.getUuid() == null ? other.getUuid() == null : this.getUuid().equals(other.getUuid()))
+        return (this.getNumber() == null ? other.getNumber() == null : this.getNumber().equals(other.getNumber()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getPwdsalt() == null ? other.getPwdsalt() == null : this.getPwdsalt().equals(other.getPwdsalt()))
             && (this.getAvatar() == null ? other.getAvatar() == null : this.getAvatar().equals(other.getAvatar()))
@@ -104,7 +101,7 @@ public class UserPo {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((getUuid() == null) ? 0 : getUuid().hashCode());
+        result = prime * result + ((getNumber() == null) ? 0 : getNumber().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getPwdsalt() == null) ? 0 : getPwdsalt().hashCode());
         result = prime * result + ((getAvatar() == null) ? 0 : getAvatar().hashCode());

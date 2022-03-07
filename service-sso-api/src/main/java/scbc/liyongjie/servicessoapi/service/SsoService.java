@@ -1,7 +1,6 @@
 package scbc.liyongjie.servicessoapi.service;
 
 import org.springframework.stereotype.Service;
-import scbc.liyongjie.servicessoapi.dao.NumberPoMapper;
 import scbc.liyongjie.servicessoapi.dao.UserPoMapper;
 import scbc.liyongjie.servicessoapi.enums.PrefixEnum;
 import scbc.liyongjie.servicessoapi.exception.PasswordException;
@@ -33,26 +32,25 @@ public class SsoService {
     private UserPoMapper userPoMapper;
 
     @Resource
-    private NumberPoMapper numberPoMapper;
-
-    @Resource
     private HttpServletResponse httpServletResponse;
 
     public void sso(UserPoJo userPoJo){
 
-        String uuid = numberPoMapper.selectByPrimaryKey(userPoJo.getNumber()).getUuid();
-        UserPo userPo = userPoMapper.selectByPrimaryKey(uuid);
-
+        UserPo userPo = userPoMapper.selectByPrimaryKey(userPoJo.getNumber());
+        String number = userPo.getNumber();
         String pwdHash = userPo.getPwdshash();
         String pwdSalt = userPo.getPwdsalt();
 
+        //比对校验密码是否上输入正确
         check(userPoJo.getPassword(),pwdHash,pwdSalt);
-        String secret = UUID.randomUUID().toString();
-        String jwt = buildToken(uuid,secret);
 
-        //redis双向绑定 token - uuid
+        //生成jwt+secret(采用java UUID生成)
+        String secret = UUID.randomUUID().toString();
+        String jwt = buildToken(number,secret);
+
+        //redis双向绑定  token <--> number
         redisUtil.set(PrefixEnum.TOKEN.getPrefix()+jwt, secret);
-        redisUtil.set(PrefixEnum.UUID.getPrefix()+uuid, jwt);
+        redisUtil.set(PrefixEnum.NUMBER.getPrefix()+number, jwt);
 
         //添加至header
         httpServletResponse.addHeader(PrefixEnum.TOKEN.getPrefix(), jwt);
@@ -63,8 +61,8 @@ public class SsoService {
             throw new PasswordException();
     }
 
-    private String buildToken(String uuid,String secret){
-        return JwtUtils.creatJwt(uuid,secret);
+    private String buildToken(String number,String secret){
+        return JwtUtils.creatJwt(number,secret);
     }
 
 }
