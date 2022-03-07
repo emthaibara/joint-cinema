@@ -11,6 +11,9 @@
         <option value="$PROJECT_DIR$/service-avatar-api/pom.xml" />
         <option value="$PROJECT_DIR$/service-sso-api/pom.xml" />
         <option value="$PROJECT_DIR$/service-logout-api/pom.xml" />
+        <option value="$PROJECT_DIR$/netty-websocket-server/pom.xml" />
+        <option value="$PROJECT_DIR$/service-nickname-api/pom.xml" />
+        <option value="$PROJECT_DIR$/service-ffmpeg-api/pom.xml" />
       </list>
     </option>
   </component>

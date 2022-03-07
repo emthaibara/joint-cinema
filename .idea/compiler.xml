@@ -7,22 +7,28 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="service-ffmpeg-cmd-api" />
+        <module name="netty-websocket-server" />
         <module name="service-video-upload-api" />
+        <module name="service-ffmpeg-api" />
         <module name="service-sso-api" />
         <module name="service-avatar-api" />
         <module name="spring-cloud-gateway" />
         <module name="service-logout-api" />
         <module name="eureka-server" />
         <module name="service-sign-api" />
+        <module name="service-nickname-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="eureka-server" target="11" />
       <module name="mycinema" target="11" />
+      <module name="netty-websocket-server" target="11" />
       <module name="service-avatar-api" target="11" />
+      <module name="service-ffmpeg-api" target="11" />
       <module name="service-ffmpeg-cmd-api" target="11" />
       <module name="service-login-api" target="11" />
       <module name="service-logout-api" target="11" />
+      <module name="service-nickname-api" target="11" />
       <module name="service-sign-api" target="11" />
       <module name="service-sso-api" target="11" />
       <module name="service-video-upload-api" target="11" />
@@ -33,10 +39,13 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="eureka-server" options="-parameters" />
       <module name="mycinema" options="-parameters" />
+      <module name="netty-websocket-server" options="-parameters" />
       <module name="service-avatar-api" options="-parameters" />
+      <module name="service-ffmpeg-api" options="-parameters" />
       <module name="service-ffmpeg-cmd-api" options="-parameters" />
       <module name="service-login-api" options="-parameters" />
       <module name="service-logout-api" options="-parameters" />
+      <module name="service-nickname-api" options="-parameters" />
       <module name="service-sign-api" options="-parameters" />
       <module name="service-sso-api" options="-parameters" />
       <module name="service-video-upload-api" options="-parameters" />
