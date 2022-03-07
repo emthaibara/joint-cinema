@@ -12,12 +12,10 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 
 @Configuration
 public class RedisConfig {
-
     @Bean
     public StringRedisTemplate redisTemplate(LettuceConnectionFactory lettuceConnectionFactory){
         StringRedisTemplate redisTemplate = new StringRedisTemplate();
         redisTemplate.setConnectionFactory(lettuceConnectionFactory);
         return redisTemplate;
     }
-
 }

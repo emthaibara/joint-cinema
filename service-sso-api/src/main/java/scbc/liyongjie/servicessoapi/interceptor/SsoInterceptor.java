@@ -12,7 +12,6 @@ import scbc.liyongjie.servicessoapi.util.RedisUtil;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.Objects;
 
 /**
@@ -31,7 +30,7 @@ public class SsoInterceptor implements HandlerInterceptor {
     private RedisUtil redisUtil;
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         String number = getNumber(request);
         isExist(number);  //是否已注册
 
@@ -48,7 +47,7 @@ public class SsoInterceptor implements HandlerInterceptor {
      * 判断该手机号是否注册
      * @param number 手机号
      */
-    private void isExist(String number) throws IOException {
+    private void isExist(String number) {
         log.info("正在拦截检查..."+number);
         if (Objects.isNull(userPoMapper.selectByPrimaryKey(number)))
             throw new UnRegisteredException();
