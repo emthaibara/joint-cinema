@@ -17,14 +17,20 @@ import javax.annotation.Resource;
  */
 
 @RestController
-@CrossOrigin
+@CrossOrigin    //局部跨域设置
 public class SsoController {
 
     @Resource
     private SsoService ssoService;
 
+    /**
+     * sso对外暴露接口
+     * @param userPoJo  post请求body中json--->实体PoJo
+     * @return  返回包装实体
+     */
     @PostMapping("/mycinema/sso")
-    public Result<?> sso(@RequestBody @Validated UserPoJo userPoJo){
+    public Result<?> sso(@RequestBody   //Validated自定义校验实体UserPoJo
+                             @Validated UserPoJo userPoJo){
         ssoService.sso(userPoJo);
         return Result.loginSuccess();
     }

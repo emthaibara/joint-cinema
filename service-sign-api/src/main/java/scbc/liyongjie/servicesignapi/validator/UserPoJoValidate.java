@@ -14,11 +14,6 @@ import javax.validation.ConstraintValidatorContext;
 public class UserPoJoValidate implements ConstraintValidator<User, UserPoJo> {
 
     @Override
-    public void initialize(User constraintAnnotation) {
-        ConstraintValidator.super.initialize(constraintAnnotation);
-    }
-
-    @Override
     public boolean isValid(UserPoJo value, ConstraintValidatorContext context) {
         ValidateUtils.check(value);
         return Boolean.TRUE;

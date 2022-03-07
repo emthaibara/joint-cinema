@@ -11,7 +11,7 @@ import java.lang.annotation.*;
         validatedBy = {UserPoJoValidate.class} //校验类
 )
 
-@Target({ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE, ElementType.CONSTRUCTOR, ElementType.PARAMETER, ElementType.TYPE_USE})
+@Target(ElementType.TYPE_USE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface User {
 

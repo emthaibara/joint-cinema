@@ -10,6 +10,7 @@ public enum PrefixEnum {
 
     TOKEN("token"),
     NUMBER("number");
+
     private final String prefix;
 
     PrefixEnum(String prefix) {
