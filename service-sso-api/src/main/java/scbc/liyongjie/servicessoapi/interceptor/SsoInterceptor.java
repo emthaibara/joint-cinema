@@ -33,7 +33,6 @@ public class SsoInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String number = getNumber(request);
-        log.info(number);
         isExist(number);  //是否已注册
 
         isOnline(number);   //是否登录在线状态
@@ -50,6 +49,7 @@ public class SsoInterceptor implements HandlerInterceptor {
      * @param number 手机号
      */
     private void isExist(String number) throws IOException {
+        log.info("正在拦截检查..."+number);
         if (Objects.isNull(userPoMapper.selectByPrimaryKey(number)))
             throw new UnRegisteredException();
     }

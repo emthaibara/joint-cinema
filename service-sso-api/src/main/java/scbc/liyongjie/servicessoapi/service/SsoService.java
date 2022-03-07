@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import scbc.liyongjie.servicessoapi.dao.UserPoMapper;
 import scbc.liyongjie.servicessoapi.enums.PrefixEnum;
 import scbc.liyongjie.servicessoapi.exception.PasswordException;
+import scbc.liyongjie.servicessoapi.exception.UnRegisteredException;
 import scbc.liyongjie.servicessoapi.po.UserPo;
 import scbc.liyongjie.servicessoapi.pojo.UserPoJo;
 import scbc.liyongjie.servicessoapi.util.JwtUtils;
@@ -12,6 +13,8 @@ import scbc.liyongjie.servicessoapi.util.RedisUtil;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -35,6 +38,8 @@ public class SsoService {
     private HttpServletResponse httpServletResponse;
 
     public void sso(UserPoJo userPoJo){
+        //再次检查是否注册
+        isExist(userPoJo.getNumber());
 
         UserPo userPo = userPoMapper.selectByPrimaryKey(userPoJo.getNumber());
         String number = userPo.getNumber();
@@ -54,6 +59,15 @@ public class SsoService {
 
         //添加至header
         httpServletResponse.addHeader(PrefixEnum.TOKEN.getPrefix(), jwt);
+    }
+
+    /**
+     * 判断该手机号是否注册
+     * @param number 手机号
+     */
+    private void isExist(String number) {
+        if (Objects.isNull(userPoMapper.selectByPrimaryKey(number)))
+            throw new UnRegisteredException();
     }
 
     private void check(String pwd,String pwdHash ,String pwdSalt){

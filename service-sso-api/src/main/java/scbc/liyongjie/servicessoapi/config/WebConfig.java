@@ -2,6 +2,7 @@ package scbc.liyongjie.servicessoapi.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import scbc.liyongjie.servicessoapi.interceptor.SsoInterceptor;
 
@@ -13,13 +14,15 @@ import javax.annotation.Resource;
  */
 
 @Configuration
-public class WebConfig implements WebMvcConfigurer {
+public class WebConfig extends WebMvcConfigurationSupport {
 
     @Resource
     private SsoInterceptor ssoInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(ssoInterceptor);
+        registry.addInterceptor(ssoInterceptor)
+               .addPathPatterns("/mycinema/sign");
     }
+
 }

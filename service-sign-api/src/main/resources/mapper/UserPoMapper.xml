@@ -10,12 +10,12 @@
     <result column="pwdshash" property="pwdshash" jdbcType="VARCHAR" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from cn.scbc.mycinema..user
-    where "number" = #{number,jdbcType=VARCHAR}
+    delete from `cn.scbc.mycinema`.user
+    where number = #{number,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="scbc.liyongjie.servicesignapi.po.UserPo" >
-    insert into cn.scbc.mycinema..user ("number", "name", pwdsalt, 
-      avatar, "date", pwdshash
+    insert into `cn.scbc.mycinema`.user (number, name, pwdsalt,
+      avatar, date, pwdshash
       )
     values (#{number,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{pwdsalt,jdbcType=VARCHAR}, 
       #{avatar,jdbcType=VARCHAR}, #{date,jdbcType=VARCHAR}, #{pwdshash,jdbcType=VARCHAR}
@@ -31,12 +31,12 @@
     where "number" = #{number,jdbcType=VARCHAR}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select "number", "name", pwdsalt, avatar, "date", pwdshash
-    from cn.scbc.mycinema..user
-    where "number" = #{number,jdbcType=VARCHAR}
+    select number, name, pwdsalt, avatar, date, pwdshash
+    from `cn.scbc.mycinema`.user
+    where number = #{number,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select "number", "name", pwdsalt, avatar, "date", pwdshash
-    from cn.scbc.mycinema..user
+    select number, name, pwdsalt, avatar, date, pwdshash
+    from `cn.scbc.mycinema`.user
   </select>
 </mapper>

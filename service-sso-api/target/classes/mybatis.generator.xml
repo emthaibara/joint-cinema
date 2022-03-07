@@ -73,11 +73,5 @@
                selectByExampleQueryId="false">
         </table>
 
-        <table catalog="cn.scbc.mycinema" tableName="number" domainObjectName="NumberPo"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
-        </table>
-
     </context>
 </generatorConfiguration>

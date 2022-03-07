@@ -1,5 +1,6 @@
 package scbc.liyongjie.servicesignapi.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -11,7 +12,6 @@ import javax.annotation.Resource;
  * @Author:SCBC_LiYongJie
  * @time:2022/3/6
  */
-
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
@@ -20,6 +20,8 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(signInterceptor);
+        registry.addInterceptor(signInterceptor)
+                .addPathPatterns("/mycinema/sign");
     }
+
 }
