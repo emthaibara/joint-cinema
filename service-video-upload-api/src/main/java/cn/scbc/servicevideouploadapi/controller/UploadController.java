@@ -10,7 +10,6 @@ import javax.annotation.Resource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @Author:SCBC_LiYongJie
  * @time:2022/1/29
  */
+
 @RestController
-@CrossOrigin
 public class UploadController {
 
     private final Logger log = LoggerFactory.getLogger(UploadController.class);
@@ -34,11 +33,6 @@ public class UploadController {
     public Result<?> isSecondPass(SecondPassPoJo secondPassPoJo){
         //Boolean result = secondPassService.isSecondPass(secondPassPoJo.getFileMd5());
         return new Result<>(Boolean.FALSE);
-    }
-
-    @PostMapping("/doSecondPass")
-    public Result<?> secondPass(){
-        return new Result<>("second pass success!");
     }
 
     @PostMapping("/mergeChunk")

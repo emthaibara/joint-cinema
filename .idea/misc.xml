@@ -7,13 +7,12 @@
         <option value="$PROJECT_DIR$/service-video-upload-api/pom.xml" />
         <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
         <option value="$PROJECT_DIR$/service-sign-api/pom.xml" />
-        <option value="$PROJECT_DIR$/spring-cloud-gateway/pom.xml" />
         <option value="$PROJECT_DIR$/service-avatar-api/pom.xml" />
         <option value="$PROJECT_DIR$/service-sso-api/pom.xml" />
         <option value="$PROJECT_DIR$/service-logout-api/pom.xml" />
         <option value="$PROJECT_DIR$/netty-websocket-server/pom.xml" />
         <option value="$PROJECT_DIR$/service-nickname-api/pom.xml" />
-        <option value="$PROJECT_DIR$/service-ffmpeg-api/pom.xml" />
+        <option value="$PROJECT_DIR$/gateway/pom.xml" />
       </list>
     </option>
   </component>

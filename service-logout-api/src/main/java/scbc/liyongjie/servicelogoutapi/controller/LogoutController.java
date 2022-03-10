@@ -1,10 +1,12 @@
 package scbc.liyongjie.servicelogoutapi.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import scbc.liyongjie.servicelogoutapi.enums.PrefixEnum;
 import scbc.liyongjie.servicelogoutapi.result.Result;
+import scbc.liyongjie.servicelogoutapi.service.LogoutService;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Author:SCBC_LiYongJie
@@ -15,9 +17,13 @@ import scbc.liyongjie.servicelogoutapi.result.Result;
 @CrossOrigin
 public class LogoutController {
 
-    @PostMapping("/mycinema/logout/{token}")
-    public Result<?> logout(@PathVariable String token){
+    @Resource
+    private LogoutService logoutService;
 
-        return new Result<>();
+    @PostMapping("/logout")
+    public Result<?> logout(HttpServletRequest request){
+        logoutService.logout(request.getHeader(PrefixEnum.TOKEN.getPrefix()));
+        return new Result<>().logoutSuccess();
     }
+
 }

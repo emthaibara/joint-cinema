@@ -3,6 +3,7 @@
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/eureka-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/netty-websocket-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service-avatar-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service-ffmpeg-api/src/main/java" charset="UTF-8" />

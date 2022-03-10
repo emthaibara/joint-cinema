@@ -51,6 +51,7 @@ public class SsoService {
 
         //将jwt token添加至header
         httpServletResponse.addHeader(PrefixEnum.TOKEN.getPrefix(), cacheToken(userPoJo.getNumber()));
+        httpServletResponse.addHeader("Access-Control-Expose-Headers","token");
     }
 
     /**

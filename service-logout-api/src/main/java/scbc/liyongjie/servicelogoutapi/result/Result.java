@@ -14,11 +14,18 @@ public class Result<T> {
     private Integer status;
     private String codeMsg;
     private T data;
-    
+
     public Result() {
 
     }
-    
+
+    public Result<?> logoutSuccess(){
+        this.data = (T) "logoutSuccess!";
+        this.status = 200;
+        this.codeMsg = null;
+        return this;
+    }
+
     public Result(T data) {
         this.data = data;
         codeMsg = null;
