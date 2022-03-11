@@ -13,7 +13,14 @@
         <option value="$PROJECT_DIR$/netty-websocket-server/pom.xml" />
         <option value="$PROJECT_DIR$/service-nickname-api/pom.xml" />
         <option value="$PROJECT_DIR$/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/grpc-proto/pom.xml" />
+        <option value="$PROJECT_DIR$/service-ffmpeg-api/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/grpc-proto/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_15" default="true" project-jdk-name="openjdk-15" project-jdk-type="JavaSDK">

@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "app-config.grpc-server-port",
+      "type": "java.lang.String",
+      "description": "Description for app-config.grpc-server-port.",
+  }
+] }

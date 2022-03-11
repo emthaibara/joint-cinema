@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/mycinema.iml" filepath="$PROJECT_DIR$/mycinema.iml" />
       <module fileurl="file://$PROJECT_DIR$/netty-websocket-server/netty-websocket-server.iml" filepath="$PROJECT_DIR$/netty-websocket-server/netty-websocket-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-avatar-api/service-avatar-api.iml" filepath="$PROJECT_DIR$/service-avatar-api/service-avatar-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-ffmpeg-api/service-ffmpeg-api.iml" filepath="$PROJECT_DIR$/service-ffmpeg-api/service-ffmpeg-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-logout-api/service-logout-api.iml" filepath="$PROJECT_DIR$/service-logout-api/service-logout-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-nickname-api/service-nickname-api.iml" filepath="$PROJECT_DIR$/service-nickname-api/service-nickname-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-sign-api/service-sign-api.iml" filepath="$PROJECT_DIR$/service-sign-api/service-sign-api.iml" />
