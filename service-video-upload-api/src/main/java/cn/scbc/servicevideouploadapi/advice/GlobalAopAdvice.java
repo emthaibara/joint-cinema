@@ -1,6 +1,8 @@
 package cn.scbc.servicevideouploadapi.advice;
 
 import cn.scbc.servicevideouploadapi.grpc.FFmpegServiceConsumerGrpc;
+import cn.scbc.servicevideouploadapi.pojo.MergeChunkPoJo;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
@@ -20,7 +22,9 @@ public class GlobalAopAdvice {
     private FFmpegServiceConsumerGrpc fFmpegServiceConsumerGrpc;
 
     @After("cn.scbc.servicevideouploadapi.aspect.CommonAspect.FFmpegAspect()")
-    public void ffmpegServiceAdvice(){
+    public void ffmpegServiceAdvice(JoinPoint joinPoint){
+        Object var = joinPoint.getArgs()[0];
+        MergeChunkPoJo mergeChunkPoJo = (MergeChunkPoJo) var;
         //创建文件夹视频文件夹----用户注册成功的时候
 
         //首先计算视频时长

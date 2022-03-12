@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="scbc.liyongjie.servicesignapi.dao.StoreHousePoMapper" >
+  <resultMap id="BaseResultMap" type="scbc.liyongjie.servicesignapi.po.StoreHousePo" >
+    <id column="number" property="number" jdbcType="VARCHAR" />
+    <result column="storehouse" property="storehouse" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from `cn.scbc.mycinema`.storehouse
+    where "number" = #{number,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="scbc.liyongjie.servicesignapi.po.StoreHousePo" >
+    insert into `cn.scbc.mycinema`.storehouse ("number", storehouse)
+    values (#{number,jdbcType=VARCHAR}, #{storehouse,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="scbc.liyongjie.servicesignapi.po.StoreHousePo" >
+    update `cn.scbc.mycinema`.storehouse
+    set storehouse = #{storehouse,jdbcType=VARCHAR}
+    where "number" = #{number,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select "number", storehouse
+    from `cn.scbc.mycinema`.storehouse
+    where "number" = #{number,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select "number", storehouse
+    from `cn.scbc.mycinema`.storehouse
+  </select>
+</mapper>

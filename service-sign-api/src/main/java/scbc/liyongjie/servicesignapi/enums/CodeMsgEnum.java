@@ -7,7 +7,8 @@ package scbc.liyongjie.servicesignapi.enums;
 
 public enum CodeMsgEnum {
 
-    REPEAT(1001,"该手机号码已注册，请勿重复注册");
+    REPEAT(1001,"该手机号码已注册，请勿重复注册"),
+    STOREHOUSE_BUILD_ERROR(1002,"仓库初始化失败");
 
     private final Integer status;
     private final String codeMsg;

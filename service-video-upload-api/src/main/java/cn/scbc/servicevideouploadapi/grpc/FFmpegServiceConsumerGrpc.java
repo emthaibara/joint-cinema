@@ -18,37 +18,33 @@ public class FFmpegServiceConsumerGrpc {
     @GrpcClient("consumer-grpc-client")
     private FFmpegServiceGrpc.FFmpegServiceBlockingStub fFmpegServiceStub;
 
-    private static final String ORIGIN_PATH = "/Users/lemt/Desktop/电影Video/video.mp4";
-    private static final String TARGET_PATH = "/Users/lemt/Desktop/电影Video/videoDASH/video.mpd";
-    private static final Integer SECOND_TIME = 520;
-
-    public String buildDash(){
+    public String buildDash(String originPath,String targetPath){
 
         return fFmpegServiceStub
                 .ffmpegBuildDASHService(FFmpegBuildDASHServiceRequest
                 .newBuilder()
-                .setOriginPath(ORIGIN_PATH)
-                .setTargetPath(TARGET_PATH)
+                .setOriginPath(originPath)
+                .setTargetPath(targetPath)
                 .build())
                 .toString();
     }
 
-    public String buildThumbnail(){
+    public String buildThumbnail(String originPath,String targetPath,Integer time){
         return fFmpegServiceStub
                 .ffmpegBuildThumbnailService(FFmpegBuildThumbnailServiceRequest
                         .newBuilder()
-                        .setOriginPath(ORIGIN_PATH)
-                        .setTargetPath(TARGET_PATH)
-                        .setTime(SECOND_TIME)
+                        .setOriginPath(originPath)
+                        .setTargetPath(targetPath)
+                        .setTime(time)
                         .build())
                 .toString();
     }
 
-    public String calculateDuration(){
+    public String calculateDuration(String originPath){
         return fFmpegServiceStub
                 .ffmpegCalculateDuration(FFmpegCalculateDurationRequest
                         .newBuilder()
-                        .setOriginPath(ORIGIN_PATH)
+                        .setOriginPath(originPath)
                         .build())
                 .toString();
     }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import scbc.liyongjie.servicesignapi.enums.CodeMsgEnum;
 import scbc.liyongjie.servicesignapi.exception.BaseException;
 import scbc.liyongjie.servicesignapi.exception.SignException;
+import scbc.liyongjie.servicesignapi.exception.StoreHouseBuildException;
 import scbc.liyongjie.servicesignapi.result.Result;
 
 import java.util.stream.Collectors;
@@ -47,4 +48,9 @@ public class GlobalExceptionHandler {
         return new Result<>().error(CodeMsgEnum.REPEAT);
     }
 
+    @ResponseBody
+    @ExceptionHandler(value = StoreHouseBuildException.class)
+    public Result<?> storeHouseBuildExceptionHandler(){
+        return new Result<>().error(CodeMsgEnum.STOREHOUSE_BUILD_ERROR);
+    }
 }

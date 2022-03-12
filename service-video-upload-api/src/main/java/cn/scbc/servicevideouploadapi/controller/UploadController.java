@@ -11,7 +11,6 @@ import javax.annotation.Resource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,25 +30,17 @@ public class UploadController {
     @Resource
     private FFmpegServiceConsumerGrpc fFmpegServiceConsumerGrpc;
 
-    @GetMapping("/")
-    public String grpc(){
-        log.info(fFmpegServiceConsumerGrpc.buildDash());
-        log.info(fFmpegServiceConsumerGrpc.buildThumbnail());
-        log.info(fFmpegServiceConsumerGrpc.calculateDuration());
-        return "ok";
-    }
-
     @Resource
     private SecondPassService secondPassService;
 
     @PostMapping("/isSecondPass")
-    public Result<?> isSecondPass(SecondPassPoJo secondPassPoJo){
+    public Result<Boolean> isSecondPass(SecondPassPoJo secondPassPoJo){
         //Boolean result = secondPassService.isSecondPass(secondPassPoJo.getFileMd5());
         return new Result<>(Boolean.FALSE);
     }
 
     @PostMapping("/mergeChunk")
-    public Result<?> mergeChunk(MergeChunkPoJo mergeChunkPoJo) {
+    public Result<String> mergeChunk(MergeChunkPoJo mergeChunkPoJo) {
         uploadService.doMerge(mergeChunkPoJo);
         return Result.mergeChunkSuccess();
     }
