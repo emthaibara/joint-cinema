@@ -1,16 +1,11 @@
 package cn.scbc.servicevideouploadapi.controller;
 
-import cn.scbc.servicevideouploadapi.grpc.FFmpegServiceConsumerGrpc;
 import cn.scbc.servicevideouploadapi.pojo.ChunkPoJo;
-import cn.scbc.servicevideouploadapi.pojo.MergeChunkPoJo;
 import cn.scbc.servicevideouploadapi.pojo.SecondPassPoJo;
 import cn.scbc.servicevideouploadapi.result.Result;
-import cn.scbc.servicevideouploadapi.service.SecondPassService;
 import cn.scbc.servicevideouploadapi.service.UploadService;
 import javax.annotation.Resource;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,20 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
  * @Author:SCBC_LiYongJie
  * @time:2022/1/29
  */
-
 @RestController
 public class UploadController {
 
-    private final Logger log = LoggerFactory.getLogger(UploadController.class);
-
     @Resource
     private UploadService uploadService;
-
-    @Resource
-    private FFmpegServiceConsumerGrpc fFmpegServiceConsumerGrpc;
-
-    @Resource
-    private SecondPassService secondPassService;
 
     @PostMapping("/isSecondPass")
     public Result<Boolean> isSecondPass(SecondPassPoJo secondPassPoJo){
@@ -39,11 +25,11 @@ public class UploadController {
         return new Result<>(Boolean.FALSE);
     }
 
-    @PostMapping("/mergeChunk")
-    public Result<String> mergeChunk(MergeChunkPoJo mergeChunkPoJo) {
-        uploadService.doMerge(mergeChunkPoJo);
-        return Result.mergeChunkSuccess();
-    }
+//    @PostMapping("/mergeChunk")
+//    public Result<String> mergeChunk(MergeChunkPoJo mergeChunkPoJo) {
+//        uploadService.doMerge(mergeChunkPoJo);
+//        return Result.mergeChunkSuccess();
+//    }
 
     @PostMapping("/upload/chunk")
     public String uploadChunk(ChunkPoJo chunkPoJo)  {

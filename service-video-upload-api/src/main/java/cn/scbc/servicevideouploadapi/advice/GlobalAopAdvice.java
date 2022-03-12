@@ -25,11 +25,10 @@ public class GlobalAopAdvice {
     public void ffmpegServiceAdvice(JoinPoint joinPoint){
         Object var = joinPoint.getArgs()[0];
         MergeChunkPoJo mergeChunkPoJo = (MergeChunkPoJo) var;
-        //创建文件夹视频文件夹----用户注册成功的时候
-
         //首先计算视频时长
 
-        //然后传递时长+originPath+targetPath
+        // 缩略图+dash流
+
 
         //最后删除视频，只保留切片+mpd+缩略图.jpeg
 

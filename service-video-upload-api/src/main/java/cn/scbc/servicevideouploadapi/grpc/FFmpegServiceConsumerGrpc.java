@@ -1,11 +1,15 @@
 package cn.scbc.servicevideouploadapi.grpc;
 
 import net.devh.boot.grpc.client.inject.GrpcClient;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import scbc.liyongjie.serviceffmpegapi.rpc.FFmpegBuildDASHServiceRequest;
 import scbc.liyongjie.serviceffmpegapi.rpc.FFmpegBuildThumbnailServiceRequest;
 import scbc.liyongjie.serviceffmpegapi.rpc.FFmpegCalculateDurationRequest;
 import scbc.liyongjie.serviceffmpegapi.rpc.FFmpegServiceGrpc;
+
+import java.text.SimpleDateFormat;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * @Author:SCBC_LiYongJie
@@ -18,26 +22,27 @@ public class FFmpegServiceConsumerGrpc {
     @GrpcClient("consumer-grpc-client")
     private FFmpegServiceGrpc.FFmpegServiceBlockingStub fFmpegServiceStub;
 
-    public String buildDash(String originPath,String targetPath){
-
-        return fFmpegServiceStub
+    @Async
+    public CompletableFuture<String> buildDash(String originPath, String targetPath){
+        return CompletableFuture.completedFuture(fFmpegServiceStub
                 .ffmpegBuildDASHService(FFmpegBuildDASHServiceRequest
-                .newBuilder()
-                .setOriginPath(originPath)
-                .setTargetPath(targetPath)
-                .build())
-                .toString();
+                        .newBuilder()
+                        .setOriginPath(originPath)
+                        .setTargetPath(targetPath)
+                        .build())
+                .toString());
     }
 
-    public String buildThumbnail(String originPath,String targetPath,Integer time){
-        return fFmpegServiceStub
+    @Async
+    public CompletableFuture<String> buildThumbnail(String originPath, String targetPath, Integer time){
+        return CompletableFuture.completedFuture(fFmpegServiceStub
                 .ffmpegBuildThumbnailService(FFmpegBuildThumbnailServiceRequest
                         .newBuilder()
                         .setOriginPath(originPath)
                         .setTargetPath(targetPath)
                         .setTime(time)
                         .build())
-                .toString();
+                .toString());
     }
 
     public String calculateDuration(String originPath){
@@ -47,6 +52,13 @@ public class FFmpegServiceConsumerGrpc {
                         .setOriginPath(originPath)
                         .build())
                 .toString();
+    }
+
+
+    public static void main(String[] args) {
+        String format = "";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+
     }
 
 }

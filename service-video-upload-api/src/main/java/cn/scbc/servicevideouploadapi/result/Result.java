@@ -10,8 +10,9 @@ public class Result<T> {
     private Integer status;
     private String codeMsg;
     private T data;
-    
+
     public Result() {
+
     }
     
     public Result(T data) {
@@ -57,4 +58,5 @@ public class Result<T> {
     public void setData(T data) {
         this.data = data;
     }
+
 }

@@ -21,7 +21,7 @@ public class JwtUtils {
     private static final Logger log = LoggerFactory.getLogger(JwtUtils.class);
 
     private static final String ISS = "scbc.liyongjie.service-sso-api";    //签发人
-    private static final long EXP = 1000*60*60*24*2;    //48h / 两天
+    private static final Long EXP = 1000*60*60*24*2L;    //48h / 两天
     private static final String SUB = "sso";    //主题
 
     public static String creatJwt(String number,String secret){

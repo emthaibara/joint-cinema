@@ -5,7 +5,6 @@ package cn.scbc.servicevideouploadapi.enums;
  * @time:2022/2/18
  */
 
-
 public enum CodeMsgEnum {
     ;
     private final Integer status;

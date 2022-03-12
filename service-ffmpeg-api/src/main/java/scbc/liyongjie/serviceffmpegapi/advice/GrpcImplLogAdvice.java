@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class GrpcImplLogAdvice {
 
+
     @Around("scbc.liyongjie.serviceffmpegapi.aspect.GrpcImplAspect.GrpcImplPointcut()")
     public Object grpcImplLog(ProceedingJoinPoint pjp) throws Throwable {
         return pjp.proceed();

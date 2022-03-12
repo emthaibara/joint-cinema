@@ -37,7 +37,7 @@ public class SignService {
     @Resource
     private UserPoMapper userPoMapper;
 
-    public void login(final UserPoJo userPoJo){
+    public void login(UserPoJo userPoJo){
 
         //再次判断是否注册
         isExist(userPoJo.getNumber());
@@ -55,7 +55,7 @@ public class SignService {
             throw new SignException();
     }
 
-    private UserPo buildRecord(final UserPoJo userPoJo){
+    private UserPo buildRecord(UserPoJo userPoJo){
         UserPo userRecord = new UserPo();
 
         //初始化---手机号/默认头像/昵称/记录build时间
