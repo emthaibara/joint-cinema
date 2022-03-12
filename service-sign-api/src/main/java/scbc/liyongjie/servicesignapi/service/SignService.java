@@ -11,7 +11,6 @@ import scbc.liyongjie.servicesignapi.exception.SignException;
 import scbc.liyongjie.servicesignapi.po.UserPo;
 import scbc.liyongjie.servicesignapi.pojo.UserPoJo;
 import scbc.liyongjie.servicesignapi.util.PBKDF2Utils;
-import scbc.liyongjie.servicesignapi.util.UUIDUtils;
 
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;

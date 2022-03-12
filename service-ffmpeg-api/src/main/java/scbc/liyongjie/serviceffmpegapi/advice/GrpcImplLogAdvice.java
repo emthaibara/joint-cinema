@@ -18,4 +18,5 @@ public class GrpcImplLogAdvice {
     public Object grpcImplLog(ProceedingJoinPoint pjp) throws Throwable {
         return pjp.proceed();
     }
+
 }

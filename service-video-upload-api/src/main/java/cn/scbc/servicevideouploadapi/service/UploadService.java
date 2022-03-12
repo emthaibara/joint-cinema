@@ -14,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.*;
 import java.util.Objects;
 
-
 /**
  * @Author:SCBC_LiYongJie
  * @time:2022/1/29
@@ -68,7 +67,7 @@ public class UploadService {
         if (Objects.isNull(files))
             throw new BasicException("你似乎还没上传该视频，合并失败！！");
 
-        int size = files.length;
+        int size = files.length;    //分片可个数
 
         File merge = new File(storePath+fileName);
         BufferedOutputStream outputStream = null;       //带缓冲区的输出流效率会高很多

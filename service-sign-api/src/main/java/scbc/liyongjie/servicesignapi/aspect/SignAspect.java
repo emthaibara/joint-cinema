@@ -1,4 +1,4 @@
-package scbc.liyongjie.serviceffmpegapi.aspect;
+package scbc.liyongjie.servicesignapi.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
@@ -11,9 +11,9 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class GrpcImplAspect {
+public class SignAspect {
 
-    @Pointcut("execution(* scbc.liyongjie.serviceffmpegapi.service.FFmpegServiceProviderImpl.*(*))")
-    public void GrpcImplPointcut(){}
+    @Pointcut("execution(* scbc.liyongjie.servicesignapi.service.SignService.login(*))")
+    public void signAspect(){}
 
 }

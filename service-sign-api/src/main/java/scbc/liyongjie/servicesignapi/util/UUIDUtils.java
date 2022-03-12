@@ -1,6 +1,6 @@
 package scbc.liyongjie.servicesignapi.util;
 
-import java.util.UUID;
+import com.fasterxml.uuid.Generators;
 
 /**
  * @Author:SCBC_LiYongJie
@@ -9,12 +9,14 @@ import java.util.UUID;
 public class UUIDUtils {
 
     public static String getUUID(){
-        return creatUUID();
+        return timeBasedGenerator();
     }
 
-    private static String creatUUID(){
-        String s = UUID.randomUUID().toString();
-        return s.substring(0,8)+s.substring(9,13)+s.substring(14,18)+s.substring(19,23)+s.substring(24);
+    private static String timeBasedGenerator(){
+        /**
+         * 使用基于时间+以太网地址联合 build的UUID确保时间空间上的唯一
+         */
+        return Generators.timeBasedGenerator().generate().toString();
     }
 
 }

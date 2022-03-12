@@ -7,23 +7,26 @@ package cn.scbc.servicevideouploadapi.pojo;
 
 
 public class MergeChunkPoJo {
-    private String fileName;
+
+    private String fileType;    // .xxx
     private String fileMd5;
+    private String fileName;
+    private String number;
 
-    @Override
-    public String toString() {
-        return "MergeChunkPoJo{" +
-                "fileName='" + fileName + '\'' +
-                ", fileMd5='" + fileMd5 + '\'' +
-                '}';
+    public String getNumber() {
+        return number;
     }
 
-    public String getFileName() {
-        return fileName;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
     }
 
     public String getFileMd5() {
@@ -32,5 +35,13 @@ public class MergeChunkPoJo {
 
     public void setFileMd5(String fileMd5) {
         this.fileMd5 = fileMd5;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 }
