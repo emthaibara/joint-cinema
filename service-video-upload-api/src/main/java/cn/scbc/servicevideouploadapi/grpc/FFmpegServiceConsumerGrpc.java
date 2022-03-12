@@ -54,11 +54,4 @@ public class FFmpegServiceConsumerGrpc {
                 .toString();
     }
 
-
-    public static void main(String[] args) {
-        String format = "";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
-
-    }
-
 }

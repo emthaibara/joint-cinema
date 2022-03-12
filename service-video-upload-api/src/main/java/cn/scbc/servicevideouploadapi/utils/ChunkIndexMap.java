@@ -1,6 +1,7 @@
 package cn.scbc.servicevideouploadapi.utils;
 
-import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @Author:SCBC_LiYongJie
@@ -9,14 +10,17 @@ import java.util.HashMap;
 
 public class ChunkIndexMap {
 
-    private static final HashMap<String,Integer> CHUNK_MAP = new HashMap<>(256);
+    private static final Map<String,Integer> CHUNK_MAP = new ConcurrentHashMap<>(256);
 
-    public synchronized void add(String number){
+    public static void add(String number){
         CHUNK_MAP.put(number, CHUNK_MAP.get(number)+1);
     }
 
-    public void remove(String number){
-        CHUNK_MAP.remove(number);
+    public static Integer get(String number){
+        return CHUNK_MAP.get(number);
     }
 
+    public static void remove(String number){
+        CHUNK_MAP.remove(number);
+    }
 }

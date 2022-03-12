@@ -32,7 +32,7 @@ public class Result<T> {
     }
 
     public static Result<String> mergeChunkSuccess(){
-        return new Result<>("chunkMerge success !");
+        return new Result<>("chunkMerge in progress......");
     }
 
     public Integer getStatus() {

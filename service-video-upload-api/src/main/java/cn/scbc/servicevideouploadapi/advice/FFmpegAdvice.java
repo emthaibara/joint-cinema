@@ -16,12 +16,12 @@ import javax.annotation.Resource;
 
 @Aspect
 @Component
-public class GlobalAopAdvice {
+public class FFmpegAdvice {
 
     @Resource
     private FFmpegServiceConsumerGrpc fFmpegServiceConsumerGrpc;
 
-    @After("cn.scbc.servicevideouploadapi.aspect.CommonAspect.FFmpegAspect()")
+    @After("cn.scbc.servicevideouploadapi.aspect.CommonAspect.ffmpegAspect()")
     public void ffmpegServiceAdvice(JoinPoint joinPoint){
         Object var = joinPoint.getArgs()[0];
         MergeChunkPoJo mergeChunkPoJo = (MergeChunkPoJo) var;
@@ -35,5 +35,7 @@ public class GlobalAopAdvice {
         //最后将 相关数据存储数据库
 
     }
+
+
 
 }
