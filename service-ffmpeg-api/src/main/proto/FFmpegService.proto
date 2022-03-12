@@ -2,7 +2,6 @@ syntax = "proto3";
 
 option java_multiple_files = true;
 option java_package = "scbc.liyongjie.serviceffmpegapi.rpc";
-option java_outer_classname = "FFmpegServiceGrpc";
 
 package scbc.liyongjie.serviceffmpegapi.rpc;
 
@@ -26,7 +25,6 @@ message FFmpegBuildThumbnailServiceRequest{
 message FFmpegCalculateDurationRequest{
   string originPath = 1;
 }
-
 
 message ResultResponse{
   string result = 1;

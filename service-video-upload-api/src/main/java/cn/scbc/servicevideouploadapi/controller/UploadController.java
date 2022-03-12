@@ -1,5 +1,6 @@
 package cn.scbc.servicevideouploadapi.controller;
 
+import cn.scbc.servicevideouploadapi.grpc.FFmpegServiceConsumerGrpc;
 import cn.scbc.servicevideouploadapi.pojo.ChunkPoJo;
 import cn.scbc.servicevideouploadapi.pojo.MergeChunkPoJo;
 import cn.scbc.servicevideouploadapi.pojo.SecondPassPoJo;
@@ -28,11 +29,14 @@ public class UploadController {
     private UploadService uploadService;
 
     @Resource
-    private GrpcClientService grpcClientService;
+    private FFmpegServiceConsumerGrpc fFmpegServiceConsumerGrpc;
 
     @GetMapping("/")
     public String grpc(){
-        return grpcClientService.ffmpegServiceGrpc();
+        log.info(fFmpegServiceConsumerGrpc.buildDash());
+        log.info(fFmpegServiceConsumerGrpc.buildThumbnail());
+        log.info(fFmpegServiceConsumerGrpc.calculateDuration());
+        return "ok";
     }
 
     @Resource

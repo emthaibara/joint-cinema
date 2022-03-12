@@ -10,7 +10,7 @@ package scbc.liyongjie.serviceffmpegapi.util;
  */
 
 public class BuildFFmpegCmd {
-    private static String buildDASHCmd(String originPath,String targetPath){
+    public static String buildDASHCmd(String originPath,String targetPath){
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("ffmpeg -i ");
         stringBuffer.append(originPath);
@@ -18,7 +18,7 @@ public class BuildFFmpegCmd {
         stringBuffer.append(targetPath);
         return stringBuffer.toString();
     }
-    private static String buildThumbnailCmd(String originPath,String targetPath,String time){
+    public static String buildThumbnailCmd(String originPath,String targetPath,Integer time){
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("ffmpeg -i ");
         stringBuffer.append(originPath);
@@ -29,7 +29,7 @@ public class BuildFFmpegCmd {
         return stringBuffer.toString();
     }
 
-    private static String calculateDurationCmd(String originPath){
+    public static String calculateDurationCmd(String originPath){
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("ffmpeg -i ");
         stringBuffer.append(originPath);
