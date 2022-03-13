@@ -1,5 +1,12 @@
 package scbc.liyongjie.serviceffmpegapi.util;
 
+import org.apache.commons.exec.*;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
+
 /**
  * @Author:SCBC_LiYongJie
  * @time:2022/3/11
@@ -71,3 +78,29 @@ dash muxer AVOptions:
      webm                         E........ make segment file in WebM format
 
  */
+
+class Test{
+
+    public static void main(String[] args) throws IOException, InterruptedException {
+        Scanner sc = new Scanner(System.in);
+        while (true){
+            ByteArrayOutputStream successStream = new ByteArrayOutputStream();
+            ByteArrayOutputStream errorStream = new ByteArrayOutputStream();
+            CommandLine commandLine = CommandLine.parse(sc.nextLine());
+            DefaultExecutor exec = new DaemonExecutor();
+            PumpStreamHandler streamHandler = new PumpStreamHandler(successStream,errorStream);
+            exec.setStreamHandler(streamHandler);
+            ExecuteResultHandler executeResultHandler = new ExecuteResultHandler() {
+                @Override
+                public void onProcessComplete(int i) {
+
+                }
+                @Override
+                public void onProcessFailed(ExecuteException e) {
+                    System.out.println(errorStream.toString(StandardCharsets.UTF_8));
+                }
+            };
+            exec.execute(commandLine,executeResultHandler);
+        }
+    }
+}

@@ -12,7 +12,6 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
-import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
@@ -77,7 +76,6 @@ public class MergeService {
         doMerge(videoPath,total,chunkFolderPath);
 
         chunkFolder.deleteOnExit();
-
     }
 
     @Value("${chunk.size}")
