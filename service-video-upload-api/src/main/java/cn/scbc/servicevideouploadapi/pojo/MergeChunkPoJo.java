@@ -12,6 +12,15 @@ public class MergeChunkPoJo {
     private String fileMd5;
     private String fileName;
     private String number;
+    private Integer fileSize;
+
+    public Integer getFileSize() {
+        return fileSize;
+    }
+
+    public void setFileSize(Integer fileSize) {
+        this.fileSize = fileSize;
+    }
 
     public String getNumber() {
         return number;

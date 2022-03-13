@@ -5,9 +5,7 @@ package cn.scbc.servicevideouploadapi.utils;
  * @time:2022/3/13
  */
 
-
 public class BuildPathUtils {
-
     public static String buildPath(String... args){
         StringBuilder stringBuilder = new StringBuilder();
         for (String arg : args) {
@@ -15,5 +13,4 @@ public class BuildPathUtils {
         }
         return stringBuilder.toString();
     }
-
 }

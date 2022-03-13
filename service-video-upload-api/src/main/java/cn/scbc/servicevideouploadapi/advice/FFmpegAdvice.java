@@ -29,7 +29,6 @@ public class FFmpegAdvice {
 
         // 缩略图+dash流
 
-
         //最后删除视频，只保留切片+mpd+缩略图.jpeg
 
         //最后将 相关数据存储数据库

@@ -8,7 +8,6 @@ import scbc.liyongjie.serviceffmpegapi.rpc.FFmpegBuildThumbnailServiceRequest;
 import scbc.liyongjie.serviceffmpegapi.rpc.FFmpegCalculateDurationRequest;
 import scbc.liyongjie.serviceffmpegapi.rpc.FFmpegServiceGrpc;
 
-import java.text.SimpleDateFormat;
 import java.util.concurrent.CompletableFuture;
 
 /**

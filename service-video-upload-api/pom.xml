@@ -18,6 +18,7 @@
         <spring-cloud.version>2021.0.0</spring-cloud.version>
     </properties>
     <dependencies>
+
         <dependency>
             <groupId>net.devh</groupId>
             <artifactId>grpc-client-spring-boot-starter</artifactId>

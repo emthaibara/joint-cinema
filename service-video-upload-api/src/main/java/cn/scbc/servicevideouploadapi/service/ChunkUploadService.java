@@ -13,18 +13,22 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
 import java.util.Objects;
 
 /**
  * @Author:SCBC_LiYongJie
  * @time:2022/1/29
+ *
  */
 
 @Service
 @PropertySource(value = {"classpath:config.properties"},encoding="utf-8")
 public class ChunkUploadService {
 
-    private final Logger logger = LoggerFactory.getLogger(ChunkUploadService.class);
+    private final Logger log = LoggerFactory.getLogger(ChunkUploadService.class);
 
     @Value("${upload.storePath}")
     private String storePath;
@@ -37,32 +41,29 @@ public class ChunkUploadService {
      */
     public void chunkUpload(ChunkPoJo chunkPoJo,String storeHouseUUID){
         MultipartFile multipartFile = chunkPoJo.getFile();
-
         Integer chunkIndex = chunkPoJo.getChunk();
         chunkIndex = Objects.isNull(chunkIndex) ? 0 : chunkIndex ; //有些较小文件传输上来可能就一个文件，不足5-10mb，默认chunkIndex为null
-
         //在妙传判断的时候初始化分片临时文件夹----md5作为文件夹名
         String chunkPath = BuildPathUtils.buildPath(storePath,storeHouseUUID,"/",chunkPoJo.getMd5(),"/",chunkIndex.toString());
-
         File file = new File(chunkPath);
-
         //避免重复上传分片
         if (file.exists())
             return;
-
         //创建分片文件---用于存储原始二进制数据
-        if (!file.mkdir())
+        if (!file.mkdir()){
+            log.error("分片---{}---临时分片文件创建失败！！",chunkIndex);
             throw new BuildChunkFileException();
-
-        //向分片文件传输数据
-        try {
-            multipartFile.transferTo(file);
-        } catch (IOException e) {
-            logger.error("分片---{}---上传失败！！",chunkIndex);
-            throw new ChunkUploadException();
         }
 
+        //向分片文件传输数据-----利用mmap优化文件读写速度
+        try (RandomAccessFile memoryAccessFile = new RandomAccessFile(file,"rw")){
+            byte[] chunkData = multipartFile.getBytes();
+            FileChannel fileChannel = memoryAccessFile.getChannel();
+            MappedByteBuffer mappedByteBuffer = fileChannel.map(FileChannel.MapMode.READ_WRITE, 0, chunkData.length);
+            mappedByteBuffer.put(chunkData);
+        } catch (IOException | IllegalStateException e) {
+            log.error("分片---{}---上传失败！！请重传该分片-------error message:{}",chunkIndex,e.getMessage());
+            throw new ChunkUploadException();
+        }
     }
-
-
 }
