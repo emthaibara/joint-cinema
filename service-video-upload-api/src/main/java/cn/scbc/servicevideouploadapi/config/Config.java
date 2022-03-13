@@ -1,18 +1,30 @@
 package cn.scbc.servicevideouploadapi.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+
+import java.text.SimpleDateFormat;
 
 /**
  * @Author:SCBC_LiYongJie
  * @time:2022/2/8
  */
 @Configuration
+@PropertySource(value = {"classpath:config.properties"},encoding="utf-8")
 public class Config {
 
+    @Value("${date.format}")
+    private String format;
+
+    @Bean
+    public SimpleDateFormat simpleDateFormat(){
+        return new SimpleDateFormat(format);
+    }
 
     @Bean
     public CorsFilter corsFilter() {

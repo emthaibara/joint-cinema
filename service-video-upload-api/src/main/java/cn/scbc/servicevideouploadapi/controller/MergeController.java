@@ -3,7 +3,6 @@ package cn.scbc.servicevideouploadapi.controller;
 import cn.scbc.servicevideouploadapi.pojo.MergeChunkPoJo;
 import cn.scbc.servicevideouploadapi.result.Result;
 import cn.scbc.servicevideouploadapi.service.MergeService;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;

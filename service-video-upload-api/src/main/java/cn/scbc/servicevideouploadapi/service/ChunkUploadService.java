@@ -15,7 +15,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.MappedByteBuffer;
+import java.nio.channels.Channel;
 import java.nio.channels.FileChannel;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.util.EnumSet;
 import java.util.Objects;
 
 /**
@@ -55,15 +59,12 @@ public class ChunkUploadService {
             throw new BuildChunkFileException();
         }
 
-        //向分片文件传输数据-----利用mmap优化文件读写速度
-        try (RandomAccessFile memoryAccessFile = new RandomAccessFile(file,"rw")){
-            byte[] chunkData = multipartFile.getBytes();
-            FileChannel fileChannel = memoryAccessFile.getChannel();
-            MappedByteBuffer mappedByteBuffer = fileChannel.map(FileChannel.MapMode.READ_WRITE, 0, chunkData.length);
-            mappedByteBuffer.put(chunkData);
-        } catch (IOException | IllegalStateException e) {
+        try {
+            multipartFile.transferTo(file);
+        } catch (IOException e) {
             log.error("分片---{}---上传失败！！请重传该分片-------error message:{}",chunkIndex,e.getMessage());
             throw new ChunkUploadException();
         }
+
     }
 }
