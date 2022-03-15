@@ -13,6 +13,12 @@ import scbc.liyongjie.servicesignapi.util.UUIDUtils;
 
 import javax.annotation.Resource;
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Objects;
 
 /**
  * @Author:SCBC_LiYongJie
@@ -37,11 +43,17 @@ public class InitStoreHouseService {
 
         //朴实无华的创建一个专属文件夹作为user的视频仓库
         String storeHousePath = rootPath+storeHouseUUID;
-        File storeHouseFolder= new File(storeHousePath);
 
-        if (!storeHouseFolder.mkdir())
-            throw new StoreHouseBuildException();
-        log.info("初始化仓库创建成功");
+        Path target = Paths.get(storeHousePath);
+        try {
+            Files.createDirectory(target);
+        } catch(FileAlreadyExistsException e){
+            log.error("仓库------{}----已经存在",storeHousePath);
+        } catch (IOException e) {
+            log.error("io 异常:"+e.getMessage());
+        }
+
+        log.info("用户------{}----初始化仓库---{}---build success!",number,storeHouseUUID);
 
         //db
         StoreHousePo storeHousePo = new StoreHousePo();

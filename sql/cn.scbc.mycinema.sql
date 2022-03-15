@@ -11,7 +11,7 @@
  Target Server Version : 80023
  File Encoding         : 65001
 
- Date: 12/03/2022 21:18:39
+ Date: 15/03/2022 16:06:04
 */
 
 SET NAMES utf8mb4;
@@ -22,8 +22,24 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `friend`;
 CREATE TABLE `friend` (
-  `me` varchar(255) DEFAULT NULL,
-  `friend` varchar(255) DEFAULT NULL
+  `me` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `friend` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`me`,`friend`),
+  KEY `number_unq` (`me`) USING BTREE,
+  CONSTRAINT `number` FOREIGN KEY (`me`) REFERENCES `user` (`number`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for share_storehouse
+-- ----------------------------
+DROP TABLE IF EXISTS `share_storehouse`;
+CREATE TABLE `share_storehouse` (
+  `number` varchar(255) NOT NULL,
+  `share_video_url` varchar(255) DEFAULT NULL,
+  `provider_number` int NOT NULL,
+  `date` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`provider_number`,`number`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -33,7 +49,8 @@ DROP TABLE IF EXISTS `storehouse`;
 CREATE TABLE `storehouse` (
   `number` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `storehouse` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  PRIMARY KEY (`number`) USING BTREE
+  PRIMARY KEY (`number`) USING BTREE,
+  KEY `storehouse` (`storehouse`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -55,16 +72,19 @@ CREATE TABLE `user` (
 -- ----------------------------
 DROP TABLE IF EXISTS `video`;
 CREATE TABLE `video` (
-  `id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `uuid` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `date` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `type` varchar(255) DEFAULT NULL,
   `duration` varchar(255) DEFAULT NULL,
   `url` varchar(255) DEFAULT NULL,
-  `size` int DEFAULT NULL,
+  `size` varchar(255) DEFAULT NULL,
   `thumbnail` varchar(255) DEFAULT NULL,
   `storehouse` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE KEY `id_unq` (`id`) USING BTREE
+  `md5` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`uuid`) USING BTREE,
+  KEY `storehouse` (`storehouse`),
+  CONSTRAINT `storehouse` FOREIGN KEY (`storehouse`) REFERENCES `storehouse` (`storehouse`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -67,11 +67,10 @@
         </javaClientGenerator>
 
         <!-- 配置需要生成代码的数据库表 -->
-        <table catalog="cn.scbc.mycinema" tableName="user" domainObjectName="UserPo"
+        <table catalog="cn.scbc.mycinema" tableName="storehouse" domainObjectName="StoreHousePo"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
         </table>
-
     </context>
 </generatorConfiguration>

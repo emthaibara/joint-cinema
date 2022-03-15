@@ -11,8 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
-import scbc.liyongjie.nettywebsocketserver.pojo.GroupChatMessage;
-import scbc.liyongjie.nettywebsocketserver.pojo.PrivateChatMessage;
+import scbc.liyongjie.nettywebsocketserver.message.GroupChatMessage;
+import scbc.liyongjie.nettywebsocketserver.message.PrivateChatMessage;
 import scbc.liyongjie.nettywebsocketserver.result.Result;
 
 import java.util.ArrayList;
@@ -120,5 +120,13 @@ public class UserChannelMapUtil {
 
     }
 
+    /**
+     *      区分在线离线好友
+     * @param number    电话号码
+     * @return  返回值
+     */
+    public static Boolean isOnline(String number){
+        return USER_CHANNEL.containsKey(number);
+    }
 
 }

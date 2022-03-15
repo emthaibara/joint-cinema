@@ -3,7 +3,7 @@ package scbc.liyongjie.nettywebsocketserver.handler;
 import io.netty.channel.Channel;
 import org.springframework.stereotype.Service;
 import scbc.liyongjie.nettywebsocketserver.enums.TokenClaimEnum;
-import scbc.liyongjie.nettywebsocketserver.pojo.*;
+import scbc.liyongjie.nettywebsocketserver.message.*;
 import scbc.liyongjie.nettywebsocketserver.util.JwtUtil;
 import scbc.liyongjie.nettywebsocketserver.util.UserChannelMapUtil;
 

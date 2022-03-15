@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import scbc.liyongjie.nettywebsocketserver.enums.MessageTypeEnum;
-import scbc.liyongjie.nettywebsocketserver.pojo.*;
+import scbc.liyongjie.nettywebsocketserver.message.*;
 import scbc.liyongjie.nettywebsocketserver.util.UserChannelMapUtil;
 
 import javax.annotation.Resource;

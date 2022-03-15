@@ -38,6 +38,9 @@ public class SignService {
     @Resource
     private UserPoMapper userPoMapper;
 
+    @Resource
+    private InitStoreHouseService initStoreHouseService;
+
     public void login(UserPoJo userPoJo){
 
         //再次判断是否注册
@@ -48,6 +51,8 @@ public class SignService {
 
         //持久化数据记录
         log.info("新增注册用户--number:{}-----{}",userPoJo.getNumber(),userPoMapper.insert(userPo));
+
+        initStoreHouseService.initStoreHouse(userPoJo.getNumber());
 
     }
 

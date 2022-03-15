@@ -8,7 +8,9 @@ package scbc.liyongjie.nettywebsocketserver.enums;
 
 public enum CodeMsgEnum {
 
-    VERIFY_FAIL(1001,"jwt token verify fail");
+    VERIFY_FAIL(1001,"jwt token verify fail"),
+    FRIEND_REPEAT(1002,"好友已经添加"),
+    FRIEND_NOT_EXIST(1003,"好友不存在，无法删除");
 
     private final Integer status;
     private final String codeMsg;

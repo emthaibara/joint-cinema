@@ -22,13 +22,13 @@
       )
   </insert>
   <update id="updateByPrimaryKey" parameterType="scbc.liyongjie.servicesignapi.po.UserPo" >
-    update cn.scbc.mycinema..user
-    set "name" = #{name,jdbcType=VARCHAR},
+    update `cn.scbc.mycinema`.user
+    set name = #{name,jdbcType=VARCHAR},
       pwdsalt = #{pwdsalt,jdbcType=VARCHAR},
       avatar = #{avatar,jdbcType=VARCHAR},
-      "date" = #{date,jdbcType=VARCHAR},
+      date = #{date,jdbcType=VARCHAR},
       pwdshash = #{pwdshash,jdbcType=VARCHAR}
-    where "number" = #{number,jdbcType=VARCHAR}
+    where name = #{number,jdbcType=VARCHAR}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select number, name, pwdsalt, avatar, date, pwdshash

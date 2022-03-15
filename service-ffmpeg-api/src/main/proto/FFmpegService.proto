@@ -19,7 +19,6 @@ message FFmpegBuildDASHServiceRequest{
 message FFmpegBuildThumbnailServiceRequest{
   string originPath = 1;
   string targetPath = 2;
-  int32 time = 3;
 }
 
 message FFmpegCalculateDurationRequest{

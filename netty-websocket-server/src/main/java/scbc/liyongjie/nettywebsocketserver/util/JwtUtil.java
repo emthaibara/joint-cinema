@@ -3,7 +3,6 @@ package scbc.liyongjie.nettywebsocketserver.util;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
-import com.nettyproject.nettyserver.enums.TokenClaimEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scbc.liyongjie.nettywebsocketserver.enums.TokenClaimEnum;

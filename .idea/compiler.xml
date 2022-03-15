@@ -9,6 +9,7 @@
         <module name="netty-websocket-server" />
         <module name="service-video-upload-api" />
         <module name="service-ffmpeg-api" />
+        <module name="service-private-video-api" />
         <module name="service-sso-api" />
         <module name="grpc-proto" />
         <module name="service-avatar-api" />
@@ -31,6 +32,7 @@
       <module name="service-login-api" target="11" />
       <module name="service-logout-api" target="11" />
       <module name="service-nickname-api" target="11" />
+      <module name="service-private-video-api" target="11" />
       <module name="service-sign-api" target="11" />
       <module name="service-sso-api" target="11" />
       <module name="service-video-upload-api" target="11" />
@@ -50,6 +52,7 @@
       <module name="service-login-api" options="-parameters" />
       <module name="service-logout-api" options="-parameters" />
       <module name="service-nickname-api" options="-parameters" />
+      <module name="service-private-video-api" options="-parameters" />
       <module name="service-sign-api" options="-parameters" />
       <module name="service-sso-api" options="-parameters" />
       <module name="service-video-upload-api" options="-parameters" />

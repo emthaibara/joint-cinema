@@ -62,11 +62,6 @@ private static final long serialVersionUID = 0L;
             targetPath_ = s;
             break;
           }
-          case 24: {
-
-            time_ = input.readInt32();
-            break;
-          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -175,17 +170,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int TIME_FIELD_NUMBER = 3;
-  private int time_;
-  /**
-   * <code>int32 time = 3;</code>
-   * @return The time.
-   */
-  @java.lang.Override
-  public int getTime() {
-    return time_;
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -206,9 +190,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(targetPath_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, targetPath_);
     }
-    if (time_ != 0) {
-      output.writeInt32(3, time_);
-    }
     unknownFields.writeTo(output);
   }
 
@@ -223,10 +204,6 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(targetPath_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, targetPath_);
-    }
-    if (time_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(3, time_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -247,8 +224,6 @@ private static final long serialVersionUID = 0L;
         .equals(other.getOriginPath())) return false;
     if (!getTargetPath()
         .equals(other.getTargetPath())) return false;
-    if (getTime()
-        != other.getTime()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -264,8 +239,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getOriginPath().hashCode();
     hash = (37 * hash) + TARGETPATH_FIELD_NUMBER;
     hash = (53 * hash) + getTargetPath().hashCode();
-    hash = (37 * hash) + TIME_FIELD_NUMBER;
-    hash = (53 * hash) + getTime();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -403,8 +376,6 @@ private static final long serialVersionUID = 0L;
 
       targetPath_ = "";
 
-      time_ = 0;
-
       return this;
     }
 
@@ -433,7 +404,6 @@ private static final long serialVersionUID = 0L;
       scbc.liyongjie.serviceffmpegapi.rpc.FFmpegBuildThumbnailServiceRequest result = new scbc.liyongjie.serviceffmpegapi.rpc.FFmpegBuildThumbnailServiceRequest(this);
       result.originPath_ = originPath_;
       result.targetPath_ = targetPath_;
-      result.time_ = time_;
       onBuilt();
       return result;
     }
@@ -489,9 +459,6 @@ private static final long serialVersionUID = 0L;
       if (!other.getTargetPath().isEmpty()) {
         targetPath_ = other.targetPath_;
         onChanged();
-      }
-      if (other.getTime() != 0) {
-        setTime(other.getTime());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -670,37 +637,6 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       targetPath_ = value;
-      onChanged();
-      return this;
-    }
-
-    private int time_ ;
-    /**
-     * <code>int32 time = 3;</code>
-     * @return The time.
-     */
-    @java.lang.Override
-    public int getTime() {
-      return time_;
-    }
-    /**
-     * <code>int32 time = 3;</code>
-     * @param value The time to set.
-     * @return This builder for chaining.
-     */
-    public Builder setTime(int value) {
-      
-      time_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 time = 3;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearTime() {
-      
-      time_ = 0;
       onChanged();
       return this;
     }

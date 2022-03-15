@@ -4,21 +4,30 @@ package cn.scbc.servicevideouploadapi.pojo;
  * @Author:SCBC_LiYongJie
  * @time:2022/2/11
  */
-
-
 public class MergeChunkPoJo {
 
-    private String fileType;    // .xxx
+    private String fileType;
     private String fileMd5;
     private String fileName;
     private String number;
-    private Integer fileSize;
+    private String fileSize;
 
-    public Integer getFileSize() {
+    @Override
+    public String toString() {
+        return "MergeChunkPoJo{" +
+                "fileType='" + fileType + '\'' +
+                ", fileMd5='" + fileMd5 + '\'' +
+                ", fileName='" + fileName + '\'' +
+                ", number='" + number + '\'' +
+                ", fileSize='" + fileSize + '\'' +
+                '}';
+    }
+
+    public String getFileSize() {
         return fileSize;
     }
 
-    public void setFileSize(Integer fileSize) {
+    public void setFileSize(String fileSize) {
         this.fileSize = fileSize;
     }
 

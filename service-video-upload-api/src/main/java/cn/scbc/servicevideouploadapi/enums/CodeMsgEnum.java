@@ -6,7 +6,9 @@ package cn.scbc.servicevideouploadapi.enums;
  */
 
 public enum CodeMsgEnum {
+
     ;
+
     private final Integer status;
     private final String codeMsg;
 

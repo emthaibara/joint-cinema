@@ -15,6 +15,7 @@
         <option value="$PROJECT_DIR$/gateway/pom.xml" />
         <option value="$PROJECT_DIR$/grpc-proto/pom.xml" />
         <option value="$PROJECT_DIR$/service-ffmpeg-api/pom.xml" />
+        <option value="$PROJECT_DIR$/service-private-video-api/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

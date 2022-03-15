@@ -5,17 +5,22 @@ import net.devh.boot.grpc.server.service.GrpcService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scbc.liyongjie.serviceffmpegapi.rpc.*;
-import scbc.liyongjie.serviceffmpegapi.util.BuildFFmpegCmd;
 import scbc.liyongjie.serviceffmpegapi.util.ResultUtils;
+
+import javax.annotation.Resource;
 
 /**
  * @Author:SCBC_LiYongJie
  * @time:2022/3/11
  */
+
 @GrpcService
 public class FFmpegServiceProviderImpl extends FFmpegServiceGrpc.FFmpegServiceImplBase {
 
     private static final Logger log = LoggerFactory.getLogger(FFmpegServiceProviderImpl.class);
+
+    @Resource
+    private CommandExecuteService commandExecuteService;
 
     /**
      *      生成dash流
@@ -30,9 +35,11 @@ public class FFmpegServiceProviderImpl extends FFmpegServiceGrpc.FFmpegServiceIm
         String targetPath = request.getTargetPath();
         log.info("ffmpegBuildDASHService----有新来的Grpc调用------{}------{}",originPath,targetPath);
         ResultResponse.newBuilder().build();
+        log.info("origin--{}---targetPath---{}",originPath,targetPath);
+        commandExecuteService.ffmpegBuildDASH(originPath,targetPath);
 
         responseObserver.onNext(ResultUtils
-                .getSuccessResultResponse(BuildFFmpegCmd.buildDASHCmd(originPath,targetPath)));
+                .getSuccessResultResponse("ok"));
         responseObserver.onCompleted();
         log.info("ffmpegBuildDASHService  onCompleted");
     }
@@ -47,27 +54,13 @@ public class FFmpegServiceProviderImpl extends FFmpegServiceGrpc.FFmpegServiceIm
     public void ffmpegBuildThumbnailService(FFmpegBuildThumbnailServiceRequest request, StreamObserver<ResultResponse> responseObserver) {
         String originPath = request.getOriginPath();
         String targetPath = request.getTargetPath();
-        Integer time = request.getTime();       //单位秒
         log.info("ffmpegBuildThumbnailService----有新来的Grpc调用------{}------{}",originPath,targetPath);
+
+        commandExecuteService.ffmpegBuildThumbnail(originPath,targetPath);
+
         responseObserver.onNext(ResultUtils
-                .getSuccessResultResponse(BuildFFmpegCmd.buildThumbnailCmd(originPath,targetPath,time)));
+                .getSuccessResultResponse("ok"));
         responseObserver.onCompleted();
         log.info("ffmpegBuildThumbnailService  onCompleted");
-    }
-
-    /**
-     *  计算视频时长-----返回结果为        01:38:18.83
-     *  需要提供视频源的路径
-     * @param request   request {originPath}
-     * @param responseObserver  response    {result==second单位}
-     */
-    @Override
-    public void ffmpegCalculateDuration(FFmpegCalculateDurationRequest request, StreamObserver<ResultResponse> responseObserver) {
-        String originPath = request.getOriginPath();
-        log.info("ffmpegCalculateDuration----有新来的Grpc调用------{}}",originPath);
-        responseObserver.onNext(ResultUtils.getSuccessResultResponse(BuildFFmpegCmd
-                .calculateDurationCmd(originPath)));
-        responseObserver.onCompleted();
-        log.info("ffmpegCalculateDuration  onCompleted");
     }
 }

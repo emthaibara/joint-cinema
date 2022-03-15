@@ -7,13 +7,15 @@ import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import scbc.liyongjie.nettywebsocketserver.pojo.AbstractMessage;
+import scbc.liyongjie.nettywebsocketserver.message.AbstractMessage;
 import scbc.liyongjie.nettywebsocketserver.util.JwtUtil;
 import scbc.liyongjie.nettywebsocketserver.util.UserChannelMapUtil;
 
 /**
  * @Author:SCBC_LiYongJie
  * @time:2022/1/29
+ *          所有的消息过滤在GlobalAopAdvice做aop处理
+ *          用于验证身份和合法性
  */
 
 @Aspect

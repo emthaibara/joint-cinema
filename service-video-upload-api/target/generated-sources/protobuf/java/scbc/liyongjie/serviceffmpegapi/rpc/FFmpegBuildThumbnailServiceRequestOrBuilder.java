@@ -30,10 +30,4 @@ public interface FFmpegBuildThumbnailServiceRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getTargetPathBytes();
-
-  /**
-   * <code>int32 time = 3;</code>
-   * @return The time.
-   */
-  int getTime();
 }

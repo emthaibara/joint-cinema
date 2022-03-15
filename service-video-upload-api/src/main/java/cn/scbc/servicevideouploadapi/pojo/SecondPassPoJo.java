@@ -10,6 +10,13 @@ public class SecondPassPoJo {
 
     private String fileMd5;
 
+    @Override
+    public String toString() {
+        return "SecondPassPoJo{" +
+                "fileMd5='" + fileMd5 + '\'' +
+                '}';
+    }
+
     public String getFileMd5() {
         return fileMd5;
     }

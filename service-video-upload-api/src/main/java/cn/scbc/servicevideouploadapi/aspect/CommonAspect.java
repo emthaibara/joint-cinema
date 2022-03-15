@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CommonAspect {
 
-    @Pointcut("execution(* cn.scbc.servicevideouploadapi.service.MergeService.merge(*))")
+    @Pointcut("@annotation(cn.scbc.servicevideouploadapi.aspect.annotation.FFmpegAop)")
     public void ffmpegAspect(){}
 
 }
