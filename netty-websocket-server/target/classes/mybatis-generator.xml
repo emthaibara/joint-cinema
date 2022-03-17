@@ -74,7 +74,7 @@
         </table>
 
         <!-- 配置需要生成代码的数据库表 -->
-        <table catalog="cn.scbc.mycinema" tableName="user" domainObjectName="User"
+        <table catalog="cn.scbc.mycinema" tableName="sharevideo" domainObjectName="ShareVideo"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

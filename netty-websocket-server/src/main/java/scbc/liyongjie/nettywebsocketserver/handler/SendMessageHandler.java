@@ -17,20 +17,8 @@ import scbc.liyongjie.nettywebsocketserver.util.UserChannelMapUtil;
 @Service
 public class SendMessageHandler {
 
-    public void sendToAFriendMsg(PrivateChatMessage message, Channel currentChannel){
-        UserChannelMapUtil.sendMessageToAFriend(message,currentChannel);
-    }
-
     public void sendToAGroupMsg(GroupChatMessage message, Channel currentChannel){
         UserChannelMapUtil.sendToAGroupMsg(message,currentChannel);
-    }
-
-    public void sendFriendRequestMsg(FriendRequestMessage message, Channel currentChannel){
-
-    }
-
-    public void sendForceOfflineMsg(ForceOfflineMessage message, Channel currentChannel){
-
     }
 
     public void doBind(BindAskMessage message, Channel channel){

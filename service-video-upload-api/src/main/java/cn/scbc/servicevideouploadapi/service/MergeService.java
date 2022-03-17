@@ -1,6 +1,5 @@
 package cn.scbc.servicevideouploadapi.service;
 
-import cn.scbc.servicevideouploadapi.aspect.annotation.FFmpegAop;
 import cn.scbc.servicevideouploadapi.exception.BuildChunkFolderException;
 import cn.scbc.servicevideouploadapi.exception.StoreHouseNotExistsException;
 import cn.scbc.servicevideouploadapi.pojo.MergeChunkPoJo;

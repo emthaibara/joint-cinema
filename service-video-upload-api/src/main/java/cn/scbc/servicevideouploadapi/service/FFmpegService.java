@@ -39,6 +39,9 @@ public class FFmpegService {
     @Value("${upload.storePath}")
     private String storePath;
 
+    @Value("${upload.video.access.url}")
+    private String accessUrl;
+
     @Resource
     private VideoMapper videoMapper;
 
@@ -69,14 +72,16 @@ public class FFmpegService {
 
         //最后将 相关数据存储数据库
         Video video = new Video();
+        String accessVideoUrl = BuildPathUtils.buildPath(accessUrl,soreHouseUUID,"/",videoDash_Chunk_mpd_Folder_UUID,".mpd");
+        String accessThumbnailUrl = BuildPathUtils.buildPath(accessUrl,soreHouseUUID,"/",videoDash_Chunk_mpd_Folder_UUID,".jpeg");
         video.setDate(simpleDateFormat.format(new Date()));
         video.setDuration("HH:MM");
         video.setMd5(mergeChunkPoJo.getFileMd5());
         video.setSize(mergeChunkPoJo.getFileSize());
         video.setStorehouse(soreHouseUUID);
-        video.setThumbnail(buildThumbnailPath);
+        video.setThumbnail(accessThumbnailUrl);
         video.setType(mergeChunkPoJo.getFileType());
-        video.setUrl(buildDashPath);
+        video.setUrl(accessVideoUrl);
         video.setUuid(videoDash_Chunk_mpd_Folder_UUID);
         video.setName(videoName);
         videoMapper.insert(video);

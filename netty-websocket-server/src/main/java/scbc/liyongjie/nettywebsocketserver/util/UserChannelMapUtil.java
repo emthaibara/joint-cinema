@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import scbc.liyongjie.nettywebsocketserver.message.GroupChatMessage;
-import scbc.liyongjie.nettywebsocketserver.message.PrivateChatMessage;
 import scbc.liyongjie.nettywebsocketserver.result.Result;
 
 import java.util.ArrayList;
@@ -88,24 +87,6 @@ public class UserChannelMapUtil {
 
     /**
      *
-     * @param privateChatMessage 单聊消息实体
-     */
-    public static void sendMessageToAFriend(PrivateChatMessage privateChatMessage, Channel currentChannel){
-        String receiver = privateChatMessage.getReceiver();
-        Channel channel = USER_CHANNEL.get(receiver);
-
-        //离线消息不做处理
-        if (Objects.isNull(channel)) {
-            currentChannel.writeAndFlush(new TextWebSocketFrame(JSON.toJSONString(new Result<>("离线消息----暂不处理"))));
-            log.info("消息发送者-->{}向-->{}发送了一条离线单聊消息:{} ",privateChatMessage.getSender(),receiver,privateChatMessage.getMessage());
-            return;
-        }
-        channel.writeAndFlush(new TextWebSocketFrame(JSON.toJSONString(new Result<>(privateChatMessage))));
-        log.info("消息发送者-->{}向-->{}发送了一条在线单聊消息:{} ",privateChatMessage.getSender(),receiver,privateChatMessage.getMessage());
-    }
-
-    /**
-     *
      * @param message 群聊消息实体
      */
     public static void sendToAGroupMsg(GroupChatMessage message, Channel currentChannel){
@@ -127,6 +108,10 @@ public class UserChannelMapUtil {
      */
     public static Boolean isOnline(String number){
         return USER_CHANNEL.containsKey(number);
+    }
+
+    public static Channel getChannel(String number){
+        return USER_CHANNEL.get(number);
     }
 
 }

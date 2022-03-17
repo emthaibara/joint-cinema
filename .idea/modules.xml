@@ -10,9 +10,9 @@
       <module fileurl="file://$PROJECT_DIR$/service-ffmpeg-api/service-ffmpeg-api.iml" filepath="$PROJECT_DIR$/service-ffmpeg-api/service-ffmpeg-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-logout-api/service-logout-api.iml" filepath="$PROJECT_DIR$/service-logout-api/service-logout-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-nickname-api/service-nickname-api.iml" filepath="$PROJECT_DIR$/service-nickname-api/service-nickname-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/service-private-video-api/service-private-video-api.iml" filepath="$PROJECT_DIR$/service-private-video-api/service-private-video-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-sign-api/service-sign-api.iml" filepath="$PROJECT_DIR$/service-sign-api/service-sign-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-sso-api/service-sso-api.iml" filepath="$PROJECT_DIR$/service-sso-api/service-sso-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-video-api/service-video-api.iml" filepath="$PROJECT_DIR$/service-video-api/service-video-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-video-upload-api/service-video-upload-api.iml" filepath="$PROJECT_DIR$/service-video-upload-api/service-video-upload-api.iml" />
     </modules>
   </component>

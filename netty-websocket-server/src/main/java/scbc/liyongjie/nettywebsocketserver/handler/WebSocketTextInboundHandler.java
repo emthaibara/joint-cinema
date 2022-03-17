@@ -50,20 +50,8 @@ public class WebSocketTextInboundHandler extends SimpleChannelInboundHandler<Tex
             sendMessageHandler.doBind(jsonObject.getObject(DATA, BindAskMessage.class),channel);
         }
 
-        if (type.equals(MessageTypeEnum.PRIVATE_CHAT.getType())){
-            sendMessageHandler.sendToAFriendMsg(jsonObject.getObject(DATA, PrivateChatMessage.class),channel);
-        }
-
         if (type.equals(MessageTypeEnum.GROUP_CHAT.getType())){
             sendMessageHandler.sendToAGroupMsg(jsonObject.getObject(DATA, GroupChatMessage.class),channel);
-        }
-
-        if (type.equals(MessageTypeEnum.FORCE_OFFLINE.getType())){
-            sendMessageHandler.sendForceOfflineMsg(jsonObject.getObject(DATA, ForceOfflineMessage.class),channel);
-        }
-
-        if (type.equals(MessageTypeEnum.FRIEND_REQUEST.getType())){
-            sendMessageHandler.sendFriendRequestMsg(jsonObject.getObject(DATA, FriendRequestMessage.class),channel);
         }
 
     }

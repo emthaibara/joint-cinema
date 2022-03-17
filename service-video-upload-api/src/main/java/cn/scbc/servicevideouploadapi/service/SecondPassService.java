@@ -4,6 +4,8 @@ import cn.scbc.servicevideouploadapi.dao.VideoMapper;
 import cn.scbc.servicevideouploadapi.pojo.SecondPassPoJo;
 import cn.scbc.servicevideouploadapi.utils.BuildPathUtils;
 import cn.scbc.servicevideouploadapi.utils.FilesUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,8 @@ import java.nio.file.Paths;
 @PropertySource(value = {"classpath:config.properties"},encoding="utf-8")
 public class SecondPassService {
 
+    private static final Logger log = LoggerFactory.getLogger(SecondPassService.class);
+
     @Value("${upload.storePath}")
     private String storePath;
 
@@ -31,6 +35,7 @@ public class SecondPassService {
     public Boolean isSecondPass(String storeHouseUUID, SecondPassPoJo secondPassPoJo){
         String md5 = secondPassPoJo.getFileMd5();
         String path = BuildPathUtils.buildPath(storePath,storeHouseUUID,"/",md5);
+        log.info(path);
         Path chunkFolder = Paths.get(path);
 
         //去数据库看有没有对应md5值的视频

@@ -21,9 +21,11 @@ public class BuildFFmpegCmd {
         return ConnectStringUtils.buildPath("ffmpeg -i ",originPath," -c copy -f dash ",targetPath," -loglevel quiet");
     }
 
+    //默认2分钟
     public static String buildThumbnailCmd(String originPath,String targetPath){
-        return ConnectStringUtils.buildPath("ffmpeg -i ",originPath," -y -f mjpeg -ss 60 -t 1 ",targetPath," -loglevel quiet");
+        return ConnectStringUtils.buildPath("ffmpeg -i ",originPath," -y -f mjpeg -ss 120 -t 1 ",targetPath," -loglevel quiet");
     }
+
 }
 
 

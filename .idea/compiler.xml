@@ -6,10 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="service-video-api" />
         <module name="netty-websocket-server" />
         <module name="service-video-upload-api" />
         <module name="service-ffmpeg-api" />
-        <module name="service-private-video-api" />
         <module name="service-sso-api" />
         <module name="grpc-proto" />
         <module name="service-avatar-api" />
@@ -35,6 +35,7 @@
       <module name="service-private-video-api" target="11" />
       <module name="service-sign-api" target="11" />
       <module name="service-sso-api" target="11" />
+      <module name="service-video-api" target="11" />
       <module name="service-video-upload-api" target="11" />
       <module name="spring-cloud-gateway" target="11" />
     </bytecodeTargetLevel>
@@ -55,6 +56,7 @@
       <module name="service-private-video-api" options="-parameters" />
       <module name="service-sign-api" options="-parameters" />
       <module name="service-sso-api" options="-parameters" />
+      <module name="service-video-api" options="-parameters" />
       <module name="service-video-upload-api" options="-parameters" />
       <module name="spring-cloud-gateway" options="-parameters" />
     </option>
