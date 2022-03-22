@@ -17,6 +17,14 @@
         <java.version>11</java.version>
     </properties>
     <dependencies>
+
+        <!--        uuid JUG-->
+        <dependency>
+            <groupId>com.fasterxml.uuid</groupId>
+            <artifactId>java-uuid-generator</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+
 <!--https://github.com/auth0/java-jwt-->
         <dependency>
             <groupId>com.auth0</groupId>

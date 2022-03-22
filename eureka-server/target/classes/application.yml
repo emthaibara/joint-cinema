@@ -4,7 +4,7 @@ spring:
 
     #eureka-server config
 server:
-  port: 8761
+  port: 8778
 eureka:
   client:
     service-url:

@@ -13,6 +13,7 @@ import java.io.IOException;
 /**
  * @Author:SCBC_LiYongJie
  * @time:2022/3/14
+ *
  */
 @Service
 @EnableAsync
@@ -33,7 +34,7 @@ public class CommandExecuteService {
         commandExecute(BuildFFmpegCmd.buildThumbnailCmd(originPath,targetPath));
     }
 
-    private final DefaultExecutor exec = new DaemonExecutor();
+    private final DefaultExecutor exec = new DefaultExecutor();
 
     private void commandExecute(String cmd){
         CommandLine commandLine = CommandLine.parse(cmd);

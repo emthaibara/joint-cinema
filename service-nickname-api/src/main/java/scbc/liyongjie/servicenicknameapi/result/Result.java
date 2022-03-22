@@ -12,16 +12,19 @@ public class Result<T>{
 
     private Integer status;
     private String codeMsg;
-    private T t;
+    private T data;
 
-    public Result(T t) {
-        this.t = t;
+    public Result() {
+    }
+
+    public Result(T data) {
+        this.data = data;
         this.codeMsg = null;
-        this.status = 2000;
+        this.status = 1;
     }
 
     public Result<?> error(CodeMsgEnum codeMsgEnum) {
-        this.t = null;
+        this.data = null;
         this.status = codeMsgEnum.getStatus();
         this.codeMsg = codeMsgEnum.getCodeMsg();
         return this;
@@ -43,11 +46,11 @@ public class Result<T>{
         this.codeMsg = codeMsg;
     }
 
-    public T getT() {
-        return t;
+    public T getData() {
+        return data;
     }
 
-    public void setT(T t) {
-        this.t = t;
+    public void setData(T t) {
+        this.data = t;
     }
 }

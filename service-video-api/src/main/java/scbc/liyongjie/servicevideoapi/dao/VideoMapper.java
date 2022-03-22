@@ -7,8 +7,7 @@ import scbc.liyongjie.servicevideoapi.po.Video;
 @Repository
 public interface VideoMapper {
 
-
     List<Video> selectByStoreHouseUUID(String storehouse);
 
-
+    Video selectByPrimaryKey(String uuid);
 }

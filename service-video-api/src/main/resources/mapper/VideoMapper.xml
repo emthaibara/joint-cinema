@@ -54,5 +54,9 @@
     from `cn.scbc.mycinema`.video
     where storehouse =  #{storehouse,jdbcType=VARCHAR}
   </select>
-
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select uuid, date, type, duration, url, size, thumbnail, storehouse, md5, name
+    from `cn.scbc.mycinema`.video
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
 </mapper>

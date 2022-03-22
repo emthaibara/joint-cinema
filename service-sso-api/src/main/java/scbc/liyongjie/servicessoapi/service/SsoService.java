@@ -1,15 +1,18 @@
 package scbc.liyongjie.servicessoapi.service;
 
 import org.springframework.stereotype.Service;
+import scbc.liyongjie.servicessoapi.dao.StoreHouseMapper;
 import scbc.liyongjie.servicessoapi.dao.UserPoMapper;
 import scbc.liyongjie.servicessoapi.enums.PrefixEnum;
 import scbc.liyongjie.servicessoapi.exception.PasswordException;
 import scbc.liyongjie.servicessoapi.exception.UnRegisteredException;
 import scbc.liyongjie.servicessoapi.po.UserPo;
+import scbc.liyongjie.servicessoapi.pojo.SsoPoJo;
 import scbc.liyongjie.servicessoapi.pojo.UserPoJo;
 import scbc.liyongjie.servicessoapi.util.JwtUtils;
 import scbc.liyongjie.servicessoapi.util.PBKDF2Utils;
 import scbc.liyongjie.servicessoapi.util.RedisUtil;
+import scbc.liyongjie.servicessoapi.util.UUIDUtils;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -36,22 +39,36 @@ public class SsoService {
     @Resource
     private HttpServletResponse httpServletResponse;
 
-    public void sso(UserPoJo userPoJo){
+    @Resource
+    private StoreHouseMapper storeHouseMapper;
+
+    public UserPoJo sso(SsoPoJo ssoPoJo){
         //检查是否注册
-        isExist(userPoJo.getNumber());
+        isExist(ssoPoJo.getNumber());
 
         //dao查询数据库返回Po实体
-        UserPo userPo = userPoMapper.selectByPrimaryKey(userPoJo.getNumber());
+        UserPo userPo = userPoMapper.selectByPrimaryKey(ssoPoJo.getNumber());
 
         //比对校验密码是否上输入正确
-        check(userPoJo.getPassword(),userPo.getPwdshash(),userPo.getPwdsalt());
+        check(ssoPoJo.getPassword(),userPo.getPwdshash(),userPo.getPwdsalt());
 
         //检查是否在线，在线则使其失效
-        isOnline(userPoJo.getNumber());
+        isOnline(ssoPoJo.getNumber());
 
         //将jwt token添加至header
-        httpServletResponse.addHeader(PrefixEnum.TOKEN.getPrefix(), cacheToken(userPoJo.getNumber()));
+        httpServletResponse.addHeader(PrefixEnum.TOKEN.getPrefix(), cacheToken(ssoPoJo.getNumber()));
         httpServletResponse.addHeader("Access-Control-Expose-Headers","token");
+
+        return buildUserPoJo(ssoPoJo.getNumber(),userPo.getName(),userPo.getAvatar(),storeHouseMapper.selectByPrimaryKey(ssoPoJo.getNumber()).getStorehouse());
+    }
+
+    private UserPoJo buildUserPoJo(String number,String nickname,String avatar,String storehouseUUID){
+        UserPoJo userPoJo = new UserPoJo();
+        userPoJo.setAvatar(avatar);
+        userPoJo.setNumber(number);
+        userPoJo.setNickname(nickname);
+        userPoJo.setStorehouseUUID(storehouseUUID);
+        return userPoJo;
     }
 
     /**
@@ -92,8 +109,8 @@ public class SsoService {
      */
     private String cacheToken(String number){
 
-        //生成jwt+secret(采用java UUID生成)
-        String secret = UUID.randomUUID().toString();
+        //生成jwt+secret(采用jug生成)
+        String secret = UUIDUtils.getUUID();
         String jwt = JwtUtils.creatJwt(number,secret);
 
         //redis双向绑定  token <--> number

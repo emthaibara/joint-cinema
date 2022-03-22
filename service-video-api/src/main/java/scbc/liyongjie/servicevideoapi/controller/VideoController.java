@@ -2,11 +2,11 @@ package scbc.liyongjie.servicevideoapi.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import scbc.liyongjie.servicevideoapi.po.Video;
+import scbc.liyongjie.servicevideoapi.pojo.ShareVideoPoJo;
 import scbc.liyongjie.servicevideoapi.result.Result;
+import scbc.liyongjie.servicevideoapi.service.ShareVideoService;
 import scbc.liyongjie.servicevideoapi.service.VideoService;
 
 import javax.annotation.Resource;
@@ -25,6 +25,10 @@ public class VideoController {
     @Resource
     private VideoService videoService;
 
+    @Resource
+    private ShareVideoService shareVideoService;
+
+    //todo
     @GetMapping("/get/video/")
     public Result<List<Video>> getPrivateVideoList(@RequestParam(value = "number")String number){
         List<Video> videoList= videoService.getPrivateStoreHouseVideoList(number);
@@ -32,8 +36,35 @@ public class VideoController {
         return new Result<>(videoList);
     }
 
-    /**
-     * 删除上传等操作暂不提供
-     */
+    @DeleteMapping("/delete/video/")
+    public Result<String> deleteVideo(@RequestParam(value = "number")String number,
+                                      @RequestParam(value = "videoUUID")String videoUUID){
+        return new Result<>();
+    }
+
+    //todo
+    @GetMapping("/get/friend/share/videoList/")
+    public Result<List<ShareVideoPoJo>> getFriendShareVideoList(@RequestParam(value = "number")String number){
+        List<ShareVideoPoJo> shareVideoPoJoList = shareVideoService.getShareVideo(number);
+        return new Result<>(shareVideoPoJoList);
+    }
+
+    @DeleteMapping("/share/video/unbind/")
+    public Result<String> unBind(@RequestParam(value = "number")String number,
+                                 @RequestParam(value = "provider_number")String providerNumber,
+                                 @RequestParam(value = "videoUUID")String videoUUID){
+
+        return new Result<>();
+    }
+
+    //todo
+    @PutMapping("/video/share/")
+    public Result<String> videoShare(@RequestParam(value = "number")String number,
+                                     @RequestParam(value = "provider_number")String providerNumber,
+                                     @RequestParam(value = "videoUUID")String videoUUID){
+        shareVideoService.doShare(number,providerNumber,videoUUID);
+        return new Result<>("video share bind success!");
+    }
+
 }
 

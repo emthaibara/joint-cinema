@@ -3,6 +3,8 @@ package scbc.liyongjie.gateway.filter;
 import com.alibaba.fastjson.JSON;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
+import org.springframework.cloud.gateway.filter.GlobalFilter;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
@@ -24,8 +26,8 @@ import javax.annotation.Resource;
  *         2.检查token是否合法
  *         3.检查token是否过期
  */
-@Component
-public class TokenFilter implements GatewayFilter {
+@Configuration
+public class TokenFilter implements GlobalFilter {
 
     private static final String TOKEN = "token";
 

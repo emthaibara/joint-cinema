@@ -1,17 +1,25 @@
 package scbc.liyongjie.servicessoapi.pojo;
 
-import scbc.liyongjie.servicessoapi.Validator.annotation.User;
-
 /**
  * @Author:SCBC_LiYongJie
- * @time:2022/3/5
+ * @time:2022/3/20
  */
 
-@User
+
 public class UserPoJo {
 
     private String number;
-    private String password;
+    private String avatar;
+    private String nickname;
+    private String storehouseUUID;
+
+    public String getStorehouseUUID() {
+        return storehouseUUID;
+    }
+
+    public void setStorehouseUUID(String storehouseUUID) {
+        this.storehouseUUID = storehouseUUID;
+    }
 
     public String getNumber() {
         return number;
@@ -21,11 +29,19 @@ public class UserPoJo {
         this.number = number;
     }
 
-    public String getPassword() {
-        return password;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 }

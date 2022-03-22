@@ -2,7 +2,7 @@ package scbc.liyongjie.servicessoapi.util;
 
 import scbc.liyongjie.servicessoapi.enums.RegularExpressionEnum;
 import scbc.liyongjie.servicessoapi.exception.BaseException;
-import scbc.liyongjie.servicessoapi.pojo.UserPoJo;
+import scbc.liyongjie.servicessoapi.pojo.SsoPoJo;
 
 import java.util.regex.Pattern;
 
@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 
 public class ValidateUtils {
 
-    public static void check(UserPoJo userPoJo){
+    public static void check(SsoPoJo userPoJo){
         if (!Pattern.matches(RegularExpressionEnum.NUMBER_RE.getRegularExpression(), userPoJo.getNumber()))
             throw new BaseException(RegularExpressionEnum.NUMBER_RE.getEffect());
     }

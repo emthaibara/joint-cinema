@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class ChunkPoJo {
 
     /** file的总大小*/
-    private long size;
+    private Long size;
 
     /** 文件的标识id*/
     private String uid;
@@ -38,7 +38,7 @@ public class ChunkPoJo {
         return size;
     }
 
-    public void setSize(long size) {
+    public void setSize(Long size) {
         this.size = size;
     }
 

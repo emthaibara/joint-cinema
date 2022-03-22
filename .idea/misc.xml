@@ -16,6 +16,8 @@
         <option value="$PROJECT_DIR$/grpc-proto/pom.xml" />
         <option value="$PROJECT_DIR$/service-ffmpeg-api/pom.xml" />
         <option value="$PROJECT_DIR$/service-video-api/pom.xml" />
+        <option value="$PROJECT_DIR$/netty-websocket-server-cinema/pom.xml" />
+        <option value="$PROJECT_DIR$/netty-websocket-server-home/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

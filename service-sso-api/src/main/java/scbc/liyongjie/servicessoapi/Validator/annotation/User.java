@@ -11,6 +11,7 @@ import java.lang.annotation.*;
 @Constraint(
         validatedBy = {UserValidator.class} //校验类
 )
+
 @Target(ElementType.TYPE_USE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface User {

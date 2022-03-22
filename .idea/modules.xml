@@ -5,7 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/mycinema.iml" filepath="$PROJECT_DIR$/mycinema.iml" />
-      <module fileurl="file://$PROJECT_DIR$/netty-websocket-server/netty-websocket-server.iml" filepath="$PROJECT_DIR$/netty-websocket-server/netty-websocket-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/netty-websocket-server-cinema/netty-websocket-server-cinema.iml" filepath="$PROJECT_DIR$/netty-websocket-server-cinema/netty-websocket-server-cinema.iml" />
+      <module fileurl="file://$PROJECT_DIR$/netty-websocket-server-home/netty-websocket-server-home.iml" filepath="$PROJECT_DIR$/netty-websocket-server-home/netty-websocket-server-home.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-avatar-api/service-avatar-api.iml" filepath="$PROJECT_DIR$/service-avatar-api/service-avatar-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-ffmpeg-api/service-ffmpeg-api.iml" filepath="$PROJECT_DIR$/service-ffmpeg-api/service-ffmpeg-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-logout-api/service-logout-api.iml" filepath="$PROJECT_DIR$/service-logout-api/service-logout-api.iml" />

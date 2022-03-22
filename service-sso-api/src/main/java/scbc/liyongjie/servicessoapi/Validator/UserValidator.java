@@ -1,8 +1,7 @@
 package scbc.liyongjie.servicessoapi.Validator;
 
-import org.springframework.validation.annotation.Validated;
 import scbc.liyongjie.servicessoapi.Validator.annotation.User;
-import scbc.liyongjie.servicessoapi.pojo.UserPoJo;
+import scbc.liyongjie.servicessoapi.pojo.SsoPoJo;
 import scbc.liyongjie.servicessoapi.util.ValidateUtils;
 
 import javax.validation.ConstraintValidator;
@@ -13,7 +12,7 @@ import javax.validation.ConstraintValidatorContext;
  * @time:2022/3/5
  */
 
-public class UserValidator implements ConstraintValidator<User, UserPoJo> {
+public class UserValidator implements ConstraintValidator<User, SsoPoJo> {
 
     @Override
     public void initialize(User constraintAnnotation) {
@@ -21,7 +20,7 @@ public class UserValidator implements ConstraintValidator<User, UserPoJo> {
     }
 
     @Override
-    public boolean isValid(UserPoJo value, ConstraintValidatorContext context) {
+    public boolean isValid(SsoPoJo value, ConstraintValidatorContext context) {
         ValidateUtils.check(value);
         return Boolean.TRUE;
     }

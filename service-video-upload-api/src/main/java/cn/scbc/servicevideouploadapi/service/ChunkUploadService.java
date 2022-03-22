@@ -29,14 +29,8 @@ public class ChunkUploadService {
     @Value("${upload.storePath}")
     private String storePath;
 
-    /**
-     * 分片上传整个流程:
-     *      创建File ----> chunk文件 以序号作文文件名
-     *      rootPath/storeHouseUUID/md5/ChunkIndex(0-n)
-     * @param chunkPoJo chunkPoJo
-     *
-     */
     public void chunkUpload(ChunkPoJo chunkPoJo,String storeHouseUUID){
+
         MultipartFile multipartFile = chunkPoJo.getFile();
         Integer chunkIndex = chunkPoJo.getChunk();
         chunkIndex = Objects.isNull(chunkIndex) ? 0 : chunkIndex ; //有些较小文件传输上来可能就一个文件，不足5-10mb，默认chunkIndex为null

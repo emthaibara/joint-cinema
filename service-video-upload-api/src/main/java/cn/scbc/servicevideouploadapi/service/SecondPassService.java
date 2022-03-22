@@ -32,17 +32,29 @@ public class SecondPassService {
     @Resource
     private VideoMapper videoMapper;
 
+
+    /**
+     *分片上传前的妙传检查：
+     *          1.业务1--->
+     *                  i.根据md5查看私人仓库文件夹是否存在md5+type的待传输视频文件
+     *                  ii.如果存在则返回FALSE<----->结果为不需要妙传
+     *                  iii.如果不存在则进一步判断数据库中是否存以md5对应的视频记录
+     *                  iv.
+     * @param storeHouseUUID    仓库UUID
+     * @param secondPassPoJo    妙传实体
+     * @return  返回是否妙传的判断
+     */
     public Boolean isSecondPass(String storeHouseUUID, SecondPassPoJo secondPassPoJo){
         String md5 = secondPassPoJo.getFileMd5();
         String path = BuildPathUtils.buildPath(storePath,storeHouseUUID,"/",md5);
-        log.info(path);
+
         Path chunkFolder = Paths.get(path);
 
         //去数据库看有没有对应md5值的视频
         if (!videoMapper.selectByMd5(md5).isEmpty())
             return Boolean.TRUE;
 
-        //然后再看看有没有没上传完或者没合并的视频切片文件夹，如果存在则按照不秒传的规则，如果不存在则新建md5为名字的分片文件夹
+        //然后再看看有没有没上传完的带传输数据的视频文件，如果存在则按照不秒传的规则，如果不存在则新建md5为名字的待传输数据的视频文件
         if (Files.exists(chunkFolder))
             return Boolean.FALSE;
 

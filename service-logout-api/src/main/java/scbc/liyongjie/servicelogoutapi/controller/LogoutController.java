@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
  */
 
 @RestController
-@CrossOrigin
 public class LogoutController {
 
     @Resource

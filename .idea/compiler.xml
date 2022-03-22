@@ -6,16 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="service-video-api" />
-        <module name="netty-websocket-server" />
         <module name="service-video-upload-api" />
         <module name="service-ffmpeg-api" />
-        <module name="service-sso-api" />
         <module name="grpc-proto" />
         <module name="service-avatar-api" />
+        <module name="service-friend-api" />
         <module name="service-logout-api" />
         <module name="eureka-server" />
+        <module name="netty-websocket-server-home" />
         <module name="service-sign-api" />
+        <module name="service-video-api" />
+        <module name="netty-websocket-server-cinema" />
+        <module name="service-sso-api" />
+        <module name="service-cinema-api" />
         <module name="gateway" />
         <module name="service-nickname-api" />
       </profile>
@@ -25,10 +28,13 @@
       <module name="gateway" target="11" />
       <module name="grpc-proto" target="11" />
       <module name="mycinema" target="11" />
-      <module name="netty-websocket-server" target="11" />
+      <module name="netty-websocket-server-cinema" target="11" />
+      <module name="netty-websocket-server-home" target="11" />
       <module name="service-avatar-api" target="11" />
+      <module name="service-cinema-api" target="11" />
       <module name="service-ffmpeg-api" target="11" />
       <module name="service-ffmpeg-cmd-api" target="11" />
+      <module name="service-friend-api" target="11" />
       <module name="service-login-api" target="11" />
       <module name="service-logout-api" target="11" />
       <module name="service-nickname-api" target="11" />
@@ -46,10 +52,13 @@
       <module name="gateway" options="-parameters" />
       <module name="grpc-proto" options="-parameters" />
       <module name="mycinema" options="-parameters" />
-      <module name="netty-websocket-server" options="-parameters" />
+      <module name="netty-websocket-server-cinema" options="-parameters" />
+      <module name="netty-websocket-server-home" options="-parameters" />
       <module name="service-avatar-api" options="-parameters" />
+      <module name="service-cinema-api" options="-parameters" />
       <module name="service-ffmpeg-api" options="-parameters" />
       <module name="service-ffmpeg-cmd-api" options="-parameters" />
+      <module name="service-friend-api" options="-parameters" />
       <module name="service-login-api" options="-parameters" />
       <module name="service-logout-api" options="-parameters" />
       <module name="service-nickname-api" options="-parameters" />

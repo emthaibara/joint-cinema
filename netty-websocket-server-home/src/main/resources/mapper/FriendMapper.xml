@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="scbc.liyongjie.nettywebsocketserver.dao.FriendMapper">
+  <resultMap id="BaseResultMap" type="scbc.liyongjie.nettywebsocketserver.po.Friend">
+    <id column="me" jdbcType="VARCHAR" property="me" />
+    <id column="friend" jdbcType="VARCHAR" property="friend" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from `cn.scbc.mycinema`.friend
+    where me = #{me,jdbcType=VARCHAR}
+      and friend = #{friend,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="scbc.liyongjie.nettywebsocketserver.po.Friend">
+    insert into `cn.scbc.mycinema`.friend (me, friend)
+    values (#{me,jdbcType=VARCHAR}, #{friend,jdbcType=VARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select me, friend
+    from `cn.scbc.mycinema`.friend
+  </select>
+  <resultMap id="BaseResultMap" type="scbc.liyongjie.nettywebsocketserver.po.Friend">
+    <id column="me" jdbcType="VARCHAR" property="me" />
+    <id column="friend" jdbcType="VARCHAR" property="friend" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from `cn.scbc.mycinema`.friend
+    where me = #{me,jdbcType=VARCHAR}
+      and friend = #{friend,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="scbc.liyongjie.nettywebsocketserver.po.Friend">
+    insert into `cn.scbc.mycinema`.friend (me, friend)
+    values (#{me,jdbcType=VARCHAR}, #{friend,jdbcType=VARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select me, friend
+    from `cn.scbc.mycinema`.friend
+  </select>
+  <resultMap id="BaseResultMap" type="scbc.liyongjie.nettywebsocketserver.po.Friend">
+    <id column="me" jdbcType="VARCHAR" property="me" />
+    <id column="friend" jdbcType="VARCHAR" property="friend" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from `cn.scbc.mycinema`.friend
+    where me = #{me,jdbcType=VARCHAR}
+      and friend = #{friend,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="scbc.liyongjie.nettywebsocketserver.po.Friend">
+    insert into `cn.scbc.mycinema`.friend (me, friend)
+    values (#{me,jdbcType=VARCHAR}, #{friend,jdbcType=VARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select me, friend
+    from `cn.scbc.mycinema`.friend
+  </select>
+
+  <select id="selectByMe" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select friend
+    from `cn.scbc.mycinema`.friend
+    where me = #{me,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select friend
+    from friend where me = #{me,jdbcType=VARCHAR} and friend = #{friend,jdbcType=VARCHAR};
+  </select>
+</mapper>
