@@ -176,11 +176,6 @@
 ![接口.svg](https://cdn.nlark.com/yuque/0/2022/svg/12390636/1648988679247-4d7ccc32-6099-47b4-9bad-a17ca38b13ba.svg#clientId=u19c087cc-baa2-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=562&id=u6862a639&name=%E6%8E%A5%E5%8F%A3.svg&originHeight=483&originWidth=450&originalType=binary&ratio=1&rotation=0&showTitle=true&size=5380000&status=done&style=shadow&taskId=u5608844c-5051-48bc-b2d6-5e717730957&title=api%20-%20all&width=524 "api - all")
 <a name="bMyMp"></a>
 
-# 七.展望与总结
-
-      - 缺少后台管理审核平台，后期会补上
-      - 后期可以利用阿里云的视频审核Python SDK，提交视频异步检测任务，对视频进行多个风险场景的识别，包括色情、暴恐涉政、广告 、不良场景、Logo（商标台标）识别。
-      - 前端的界面编写较为薄弱，知识储备不够，后期需要进行升级界面，数据的实时更新展示等等功能的实现，基于用户最常采用的行为，通过合理安排交互元素的布局让用户用最容易的方式获取和使用，提高用户的直接体验。
 
 <a name="xRJR0"></a>
 
