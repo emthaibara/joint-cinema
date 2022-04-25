@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="service-video-upload-api" />
+        <module name="service-ffmpeg-api" />
+        <module name="grpc-proto" />
+        <module name="service-avatar-api" />
+        <module name="service-friend-api" />
+        <module name="service-logout-api" />
+        <module name="eureka-server" />
+        <module name="netty-websocket-server-home" />
+        <module name="service-sign-api" />
+        <module name="service-video-api" />
+        <module name="netty-websocket-server-cinema" />
+        <module name="service-sso-api" />
+        <module name="service-cinema-api" />
+        <module name="service-audit-api" />
+        <module name="gateway" />
+        <module name="service-nickname-api" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="eureka-server" target="11" />
+      <module name="gateway" target="11" />
+      <module name="grpc-proto" target="11" />
+      <module name="mycinema" target="11" />
+      <module name="netty-websocket-server-cinema" target="11" />
+      <module name="netty-websocket-server-home" target="11" />
+      <module name="service-audit-api" target="11" />
+      <module name="service-avatar-api" target="11" />
+      <module name="service-cinema-api" target="11" />
+      <module name="service-ffmpeg-api" target="11" />
+      <module name="service-ffmpeg-cmd-api" target="11" />
+      <module name="service-friend-api" target="11" />
+      <module name="service-login-api" target="11" />
+      <module name="service-logout-api" target="11" />
+      <module name="service-nickname-api" target="11" />
+      <module name="service-private-video-api" target="11" />
+      <module name="service-sign-api" target="11" />
+      <module name="service-sso-api" target="11" />
+      <module name="service-video-api" target="11" />
+      <module name="service-video-upload-api" target="11" />
+      <module name="spring-cloud-gateway" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="eureka-server" options="-parameters" />
+      <module name="gateway" options="-parameters" />
+      <module name="grpc-proto" options="-parameters" />
+      <module name="mycinema" options="-parameters" />
+      <module name="netty-websocket-server-cinema" options="-parameters" />
+      <module name="netty-websocket-server-home" options="-parameters" />
+      <module name="service-audit-api" options="-parameters" />
+      <module name="service-avatar-api" options="-parameters" />
+      <module name="service-cinema-api" options="-parameters" />
+      <module name="service-ffmpeg-api" options="-parameters" />
+      <module name="service-ffmpeg-cmd-api" options="-parameters" />
+      <module name="service-friend-api" options="-parameters" />
+      <module name="service-login-api" options="-parameters" />
+      <module name="service-logout-api" options="-parameters" />
+      <module name="service-nickname-api" options="-parameters" />
+      <module name="service-private-video-api" options="-parameters" />
+      <module name="service-sign-api" options="-parameters" />
+      <module name="service-sso-api" options="-parameters" />
+      <module name="service-video-api" options="-parameters" />
+      <module name="service-video-upload-api" options="-parameters" />
+      <module name="spring-cloud-gateway" options="-parameters" />
+    </option>
+  </component>
+</project>

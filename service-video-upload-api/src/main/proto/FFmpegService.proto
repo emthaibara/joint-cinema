@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "scbc.liyongjie.serviceffmpegapi.rpc";
+
+package scbc.liyongjie.serviceffmpegapi.rpc;
+
+service FFmpegService{
+  rpc ffmpegBuildDASHService(FFmpegBuildDASHServiceRequest) returns(ResultResponse){}
+  rpc ffmpegBuildThumbnailService(FFmpegBuildThumbnailServiceRequest) returns(ResultResponse){}
+  rpc ffmpegCalculateDuration(FFmpegCalculateDurationRequest) returns(ResultResponse) {}
+}
+
+message FFmpegBuildDASHServiceRequest{
+  string originPath = 1;
+  string targetPath = 2;
+}
+
+message FFmpegBuildThumbnailServiceRequest{
+  string originPath = 1;
+  string targetPath = 2;
+}
+
+message FFmpegCalculateDurationRequest{
+  string originPath = 1;
+}
+message ResultResponse{
+  string result = 1;
+  int32 status = 2;
+  string codeMsg = 3;
+}

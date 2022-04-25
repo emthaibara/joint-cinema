@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.scbc.service.audit.api.dao.VideoAuditMapper">
+  <resultMap id="BaseResultMap" type="cn.scbc.service.audit.api.po.VideoAudit">
+    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+  </resultMap>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from `cn.scbc.mycinema`.video_audit
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.scbc.service.audit.api.po.VideoAudit">
+    insert into `cn.scbc.mycinema`.video_audit (uuid, status, number
+      )
+    values (#{uuid,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.scbc.service.audit.api.po.VideoAudit">
+    update `cn.scbc.mycinema`.video_audit
+    set status = #{status,jdbcType=VARCHAR},
+      number = #{number,jdbcType=VARCHAR}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select uuid, status, number
+    from`cn.scbc.mycinema`.video_audit
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select uuid, status, number
+    from `cn.scbc.mycinema`.video_audit
+  </select>
+</mapper>

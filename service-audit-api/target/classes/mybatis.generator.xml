@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MyBatis-Generator 相关配置 -->
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<!-- 所有的配置均在 generatorConfiguration 标签下 -->
+<generatorConfiguration>
+
+    <!-- 配置 context 上下文  -->
+    <context id="MySqlContext" defaultModelType="flat" targetRuntime="MyBatis3Simple" >
+        <!-- 自动识别数据库关键字，默认为 false，一般保留默认值，遇到数据库关键字（Java关键字）时，
+            按照 table 元素中 columnOverride 属性的配置进行覆盖；
+            如果设置为 true， 则需按照 SqlReservedWords 中定义的关键字列表，对关键字进行定界（分隔）；
+            定界符（分隔符）参见 beginningDelimiter 和 endingDelimiter 的设置-->
+        <property name="autoDelimitKeywords" value="true"/>
+
+        <!-- 生成的 Java 文件的编码   -->
+        <property name="JavaFileEncoding" value="UTF-8"/>
+        <!-- 格式化 Java 代码 -->
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+        <!-- 格式化 XML 代码 -->
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+
+        <!--  为生成的 Model 覆写 toString() 方法 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!--  为生成的 Model 覆写 equals() 和 hashCode() 方法 -->
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+
+        <!--  配置注释生成器 -->
+        <commentGenerator>
+            <!--  不生成所有注释，默认为 false  -->
+            <property name="suppressAllComments" value="true"/>
+
+            <!--  生成的注释中不包含时间信息，默认为 false -->
+            <property name="suppressDate" value="true"/>
+            <!--  生成的注释中，时间的显示格式 -->
+            <property name="dateFormat" value="yyyy/MM/dd"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.NonRegisteringDriver"
+                        connectionURL="jdbc:mysql://localhost:3306/cn.scbc.mycinema"
+                        userId="root"
+                        password="aA8932958150233"
+        >
+            <!--  若为 8.0 版本以上的 mysql-connector-java 驱动，需要设置 nullCatalogMeansCurrent = true -->
+            <property name="nullCatalogMeansCurrent" value="true"/>
+            <property name="useInformationSchema" value="true"/>
+        </jdbcConnection>
+
+        <!--  配置 Java 模型生成器 -->
+        <javaModelGenerator targetPackage="cn.scbc.service.audit.api.po" targetProject="src/main/java">
+
+        </javaModelGenerator>
+
+        <!-- SQL Map 的 xml 文件生成器 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+            <!-- 同 javaModelGenerator 元素中的配置  -->
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!--  关于 Mapper 接口的生成 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.scbc.service.audit.api.dao"
+                             targetProject="src/main/java">
+            <!-- 同 javaModelGenerator 元素中的配置  -->
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+        <!-- 配置需要生成代码的数据库表 -->
+        <table catalog="cn.scbc.mycinema" tableName="user" domainObjectName="User"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table catalog="cn.scbc.mycinema" tableName="video" domainObjectName="Video"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table catalog="cn.scbc.mycinema" tableName="video_audit" domainObjectName="VideoAudit"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+    </context>
+</generatorConfiguration>

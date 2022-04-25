@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.scbc.service.audit.api.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="cn.scbc.service.audit.api.po.User">
+    <id column="number" jdbcType="VARCHAR" property="number" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="pwdsalt" jdbcType="VARCHAR" property="pwdsalt" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="date" jdbcType="VARCHAR" property="date" />
+    <result column="pwdshash" jdbcType="VARCHAR" property="pwdshash" />
+  </resultMap>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from `cn.scbc.mycinema`.user
+    where number = #{number,jdbcType=VARCHAR}
+  </delete>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select number, name, avatar, date
+    from `cn.scbc.mycinema`.user
+    where number = #{number,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select number, date,avatar,name, date
+    from `cn.scbc.mycinema`.user
+  </select>
+</mapper>

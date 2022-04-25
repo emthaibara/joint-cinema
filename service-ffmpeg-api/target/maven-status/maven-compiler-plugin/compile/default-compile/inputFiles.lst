@@ -1,0 +1,17 @@
+/Users/lemt/Desktop/design competition/mycinema/service-ffmpeg-api/src/main/java/scbc/liyongjie/serviceffmpegapi/util/RedisUtils.java
+/Users/lemt/Desktop/design competition/mycinema/service-ffmpeg-api/src/main/java/scbc/liyongjie/serviceffmpegapi/po/Video.java
+/Users/lemt/Desktop/design competition/mycinema/service-ffmpeg-api/src/main/java/scbc/liyongjie/serviceffmpegapi/util/ResultUtils.java
+/Users/lemt/Desktop/design competition/mycinema/service-ffmpeg-api/src/main/java/scbc/liyongjie/serviceffmpegapi/util/BuildFFmpegCmd.java
+/Users/lemt/Desktop/design competition/mycinema/service-ffmpeg-api/src/main/java/scbc/liyongjie/serviceffmpegapi/ServiceFfmpegApiApplication.java
+/Users/lemt/Desktop/design competition/mycinema/service-ffmpeg-api/src/main/java/scbc/liyongjie/serviceffmpegapi/message/BuildDashMessage.java
+/Users/lemt/Desktop/design competition/mycinema/service-ffmpeg-api/src/main/java/scbc/liyongjie/serviceffmpegapi/consumer/BuildDashMessageConsumer.java
+/Users/lemt/Desktop/design competition/mycinema/service-ffmpeg-api/src/main/java/scbc/liyongjie/serviceffmpegapi/util/ConnectStringUtils.java
+/Users/lemt/Desktop/design competition/mycinema/service-ffmpeg-api/src/main/java/scbc/liyongjie/serviceffmpegapi/pojo/UnderReviewVideo.java
+/Users/lemt/Desktop/design competition/mycinema/service-ffmpeg-api/src/main/java/scbc/liyongjie/serviceffmpegapi/dao/VideoMapper.java
+/Users/lemt/Desktop/design competition/mycinema/service-ffmpeg-api/src/main/java/scbc/liyongjie/serviceffmpegapi/util/ChangeTimeFormatUtils.java
+/Users/lemt/Desktop/design competition/mycinema/service-ffmpeg-api/src/main/java/scbc/liyongjie/serviceffmpegapi/config/Config.java
+/Users/lemt/Desktop/design competition/mycinema/service-ffmpeg-api/src/main/java/scbc/liyongjie/serviceffmpegapi/enums/CodeMsgEnums.java
+/Users/lemt/Desktop/design competition/mycinema/service-ffmpeg-api/src/main/java/scbc/liyongjie/serviceffmpegapi/po/VideoAudit.java
+/Users/lemt/Desktop/design competition/mycinema/service-ffmpeg-api/src/main/java/scbc/liyongjie/serviceffmpegapi/service/FFmpegServiceProviderImpl.java
+/Users/lemt/Desktop/design competition/mycinema/service-ffmpeg-api/src/main/java/scbc/liyongjie/serviceffmpegapi/service/CommandExecuteService.java
+/Users/lemt/Desktop/design competition/mycinema/service-ffmpeg-api/src/main/java/scbc/liyongjie/serviceffmpegapi/dao/VideoAuditMapper.java

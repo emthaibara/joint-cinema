@@ -1,0 +1,17 @@
+# Created at 2022-04-21T15:52:43.766
+TestSet has not finished before stream error has appeared >> initializing exit by non-null configuration: null
+java.io.EOFException
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:396)
+	at org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
+	at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+
+
+# Created at 2022-04-21T15:52:43.780
+Unexpected IOException with stream: 2022-04-21 15:52:43.780  INFO 19485 --- [ionShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+
+
+# Created at 2022-04-21T15:52:43.781
+Unexpected IOException with stream: 2022-04-21 15:52:43.781  INFO 19485 --- [ionShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+
+

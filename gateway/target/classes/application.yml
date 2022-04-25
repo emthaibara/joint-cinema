@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          lower-case-service-id: true
+          enabled: true
+#      httpclient:
+#        pool:
+#          max-idle-time: 10000
+#          max-connections: 30
+#        connect-timeout: 1000
+#        response-timeout: 5s
+
+server:
+  port: 8778
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka

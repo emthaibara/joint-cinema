@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.scbc.servicevideouploadapi.dao.VideoMapper" >
+  <resultMap id="BaseResultMap" type="cn.scbc.servicevideouploadapi.po.Video" >
+    <id column="uuid" property="uuid" jdbcType="VARCHAR" />
+    <result column="date" property="date" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="duration" property="duration" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="size" property="size" jdbcType="VARCHAR" />
+    <result column="thumbnail" property="thumbnail" jdbcType="VARCHAR" />
+    <result column="storehouse" property="storehouse" jdbcType="VARCHAR" />
+    <result column="md5" property="md5" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from `cn.scbc.mycinema`.video
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.scbc.servicevideouploadapi.po.Video" >
+    insert into  `cn.scbc.mycinema`.video (uuid, date, type,
+      duration, url, size, 
+      thumbnail, storehouse, md5, 
+      name)
+    values (#{uuid,jdbcType=VARCHAR}, #{date,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{duration,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{size,jdbcType=VARCHAR}, 
+      #{thumbnail,jdbcType=VARCHAR}, #{storehouse,jdbcType=VARCHAR}, #{md5,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.scbc.servicevideouploadapi.po.Video" >
+    update `cn.scbc.mycinema`.video
+    set date = #{date,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      duration = #{duration,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      size = #{size,jdbcType=VARCHAR},
+      thumbnail = #{thumbnail,jdbcType=VARCHAR},
+      storehouse = #{storehouse,jdbcType=VARCHAR},
+      md5 = #{md5,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR}
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select uuid, date, type, duration, url, size, thumbnail, storehouse, md5, name
+    from `cn.scbc.mycinema`.video
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByMd5" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select uuid, date, type, duration, url, size, thumbnail, storehouse, md5, name
+    from `cn.scbc.mycinema`.video
+    where storehouse = #{storehouse,jdbcType=VARCHAR} and md5 = #{md5,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select uuid, date, type, duration, url, size, thumbnail, storehouse, md5, name
+    from `cn.scbc.mycinema`.video
+  </select>
+
+</mapper>

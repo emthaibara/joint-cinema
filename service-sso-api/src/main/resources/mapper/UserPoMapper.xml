@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="scbc.liyongjie.servicessoapi.dao.UserPoMapper" >
+  <resultMap id="BaseResultMap" type="scbc.liyongjie.servicessoapi.po.UserPo" >
+    <id column="number" property="number" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="pwdsalt" property="pwdsalt" jdbcType="VARCHAR" />
+    <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+    <result column="date" property="date" jdbcType="VARCHAR" />
+    <result column="pwdshash" property="pwdshash" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from `cn.scbc.mycinema`.user
+    where number = #{number,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="scbc.liyongjie.servicessoapi.po.UserPo" >
+    insert into `cn.scbc.mycinema`.user (number, name, pwdsalt,
+      avatar, date, pwdshash
+      )
+    values (#{number,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{pwdsalt,jdbcType=VARCHAR}, 
+      #{avatar,jdbcType=VARCHAR}, #{date,jdbcType=VARCHAR}, #{pwdshash,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="scbc.liyongjie.servicessoapi.po.UserPo" >
+    update `cn.scbc.mycinema`.user
+    set name = #{name,jdbcType=VARCHAR},
+      pwdsalt = #{pwdsalt,jdbcType=VARCHAR},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      date = #{date,jdbcType=VARCHAR},
+      pwdshash = #{pwdshash,jdbcType=VARCHAR}
+    where number = #{number,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select number, name, pwdsalt, avatar, date, pwdshash
+    from `cn.scbc.mycinema`.user
+    where number = #{number,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select "number", "name", pwdsalt, avatar, "date", pwdshash
+    from `cn.scbc.mycinema`.user
+  </select>
+</mapper>

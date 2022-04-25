@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/service-video-upload-api/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/service-sign-api/pom.xml" />
+        <option value="$PROJECT_DIR$/service-avatar-api/pom.xml" />
+        <option value="$PROJECT_DIR$/service-sso-api/pom.xml" />
+        <option value="$PROJECT_DIR$/service-logout-api/pom.xml" />
+        <option value="$PROJECT_DIR$/netty-websocket-server/pom.xml" />
+        <option value="$PROJECT_DIR$/service-nickname-api/pom.xml" />
+        <option value="$PROJECT_DIR$/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/grpc-proto/pom.xml" />
+        <option value="$PROJECT_DIR$/service-ffmpeg-api/pom.xml" />
+        <option value="$PROJECT_DIR$/service-video-api/pom.xml" />
+        <option value="$PROJECT_DIR$/netty-websocket-server-cinema/pom.xml" />
+        <option value="$PROJECT_DIR$/netty-websocket-server-home/pom.xml" />
+        <option value="$PROJECT_DIR$/service-audit-api/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/grpc-proto/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" default="true" project-jdk-name="openjdk-15" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

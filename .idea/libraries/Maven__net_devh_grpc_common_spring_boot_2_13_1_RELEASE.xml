@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: net.devh:grpc-common-spring-boot:2.13.1.RELEASE">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/devh/grpc-common-spring-boot/2.13.1.RELEASE/grpc-common-spring-boot-2.13.1.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/net/devh/grpc-common-spring-boot/2.13.1.RELEASE/grpc-common-spring-boot-2.13.1.RELEASE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/devh/grpc-common-spring-boot/2.13.1.RELEASE/grpc-common-spring-boot-2.13.1.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,13 @@
+/Users/lemt/Desktop/design competition/mycinema/service-nickname-api/src/main/java/scbc/liyongjie/servicenicknameapi/advice/NickNameValidateAdvice.java
+/Users/lemt/Desktop/design competition/mycinema/service-nickname-api/src/main/java/scbc/liyongjie/servicenicknameapi/aspect/NickNameValidateAop.java
+/Users/lemt/Desktop/design competition/mycinema/service-nickname-api/src/main/java/scbc/liyongjie/servicenicknameapi/aspect/CommonAspect.java
+/Users/lemt/Desktop/design competition/mycinema/service-nickname-api/src/main/java/scbc/liyongjie/servicenicknameapi/handler/GlobalExceptionHandler.java
+/Users/lemt/Desktop/design competition/mycinema/service-nickname-api/src/main/java/scbc/liyongjie/servicenicknameapi/enums/CodeMsgEnum.java
+/Users/lemt/Desktop/design competition/mycinema/service-nickname-api/src/main/java/scbc/liyongjie/servicenicknameapi/ServiceNicknameApiApplication.java
+/Users/lemt/Desktop/design competition/mycinema/service-nickname-api/src/main/java/scbc/liyongjie/servicenicknameapi/result/Result.java
+/Users/lemt/Desktop/design competition/mycinema/service-nickname-api/src/main/java/scbc/liyongjie/servicenicknameapi/dao/UserMapper.java
+/Users/lemt/Desktop/design competition/mycinema/service-nickname-api/src/main/java/scbc/liyongjie/servicenicknameapi/controller/NickNameController.java
+/Users/lemt/Desktop/design competition/mycinema/service-nickname-api/src/main/java/scbc/liyongjie/servicenicknameapi/po/User.java
+/Users/lemt/Desktop/design competition/mycinema/service-nickname-api/src/main/java/scbc/liyongjie/servicenicknameapi/service/NickNameService.java
+/Users/lemt/Desktop/design competition/mycinema/service-nickname-api/src/main/java/scbc/liyongjie/servicenicknameapi/exception/UnRegisterException.java
+/Users/lemt/Desktop/design competition/mycinema/service-nickname-api/src/main/java/scbc/liyongjie/servicenicknameapi/exception/NickNameException.java

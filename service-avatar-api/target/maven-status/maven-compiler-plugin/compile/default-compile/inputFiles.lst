@@ -1,0 +1,16 @@
+/Users/lemt/Desktop/design competition/mycinema/service-avatar-api/src/main/java/scbc/liyongjie/serviceavatarapi/ServiceAvatarApiApplication.java
+/Users/lemt/Desktop/design competition/mycinema/service-avatar-api/src/main/java/scbc/liyongjie/serviceavatarapi/po/User.java
+/Users/lemt/Desktop/design competition/mycinema/service-avatar-api/src/main/java/scbc/liyongjie/serviceavatarapi/dao/UserMapper.java
+/Users/lemt/Desktop/design competition/mycinema/service-avatar-api/src/main/java/scbc/liyongjie/serviceavatarapi/result/Result.java
+/Users/lemt/Desktop/design competition/mycinema/service-avatar-api/src/main/java/scbc/liyongjie/serviceavatarapi/util/SuffixCheckUtils.java
+/Users/lemt/Desktop/design competition/mycinema/service-avatar-api/src/main/java/scbc/liyongjie/serviceavatarapi/controller/AvatarController.java
+/Users/lemt/Desktop/design competition/mycinema/service-avatar-api/src/main/java/scbc/liyongjie/serviceavatarapi/exception/AvatarTypeException.java
+/Users/lemt/Desktop/design competition/mycinema/service-avatar-api/src/main/java/scbc/liyongjie/serviceavatarapi/util/UUIDUtils.java
+/Users/lemt/Desktop/design competition/mycinema/service-avatar-api/src/main/java/scbc/liyongjie/serviceavatarapi/exception/NotDataException.java
+/Users/lemt/Desktop/design competition/mycinema/service-avatar-api/src/main/java/scbc/liyongjie/serviceavatarapi/exception/OverSizeAvatarException.java
+/Users/lemt/Desktop/design competition/mycinema/service-avatar-api/src/main/java/scbc/liyongjie/serviceavatarapi/service/AvatarService.java
+/Users/lemt/Desktop/design competition/mycinema/service-avatar-api/src/main/java/scbc/liyongjie/serviceavatarapi/exception/UploadFailException.java
+/Users/lemt/Desktop/design competition/mycinema/service-avatar-api/src/main/java/scbc/liyongjie/serviceavatarapi/pojo/SetAvatarPoJo.java
+/Users/lemt/Desktop/design competition/mycinema/service-avatar-api/src/main/java/scbc/liyongjie/serviceavatarapi/exception/UnRegisterException.java
+/Users/lemt/Desktop/design competition/mycinema/service-avatar-api/src/main/java/scbc/liyongjie/serviceavatarapi/enums/CodeMsgEnum.java
+/Users/lemt/Desktop/design competition/mycinema/service-avatar-api/src/main/java/scbc/liyongjie/serviceavatarapi/handler/GlobalExceptionHandler.java
